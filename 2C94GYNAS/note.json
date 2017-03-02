@@ -1,0 +1,957 @@
+{
+  "paragraphs": [
+    {
+      "text": "%python\nimport numpy\nmatplotlib.use(\u0027Agg\u0027)\nimport matplotlib\nfrom matplotlib import pyplot as plt\nfig\u003d plt.figure()\nfig.plot([-5,2,3,4],[-200,5,200,500])\n\nx \u003d [x/10 for x in list(range(-50,50))]\ny \u003d [ -4 * x1**3 + 3 * x1**2 + 2*x1 + 5 for x1 in x]\n\nplt.plot(x,y)\nplt.ylabel(\u0027some numbers\u0027)\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:33:59 AM",
+      "config": {
+        "tableHide": false,
+        "colWidth": 8.0,
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961934_1482831978",
+      "id": "20170201-172710_480802407",
+      "result": {
+        "code": "ERROR",
+        "type": "HTML",
+        "msg": "Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 298, in displayhook\n    show()\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 71, in __call__\n    manager.show(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 203, in show\n    zdisplay(self.canvas.figure, **kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 285, in zdisplay\n    src \u003d fig.canvas.manager.angular_bind(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 157, in angular_bind\n    src \u003d self.canvas.get_bytes(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 96, in get_bytes\n    byte_str \u003d b\"data:image/%s;base64,\" %fmt\nTypeError: unsupported operand type(s) for %: \u0027bytes\u0027 and \u0027str\u0027\n"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:33:59 AM",
+      "dateFinished": "Feb 3, 2017 10:34:06 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Creating Graphs with matplotlib\n\n\nIn python the results of a calculation can be displyed graphically to aid understandinng and comparison of results.\n\nto get the interpreter to talk to the correct DISPLAY output it is currently necessary to use\n```matplotlib.use(\u0027Agg\u0027)```\nthis is a new problem that has been encountered with Python3 and is a known bug. There is a group of maintainers that are trying to make things easier to work with.\n\nTo make a graph you need to have matplotlib imported\nthen you can define a graph using the ```plt.figure()```\nto add lines to the xy plot you can just add a list of x coords and a corresponding list of y coords. using list comprhensions on an x-range makes this easy to draw complex graphs\n\n\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:33:59 AM",
+      "config": {
+        "colWidth": 4.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485994868181_237187050",
+      "id": "20170202-002108_736951842",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eCreating Graphs with matplotlib\u003c/h3\u003e\n\u003cp\u003eIn python the results of a calculation can be displyed graphically to aid understandinng and comparison of results.\u003c/p\u003e\n\u003cp\u003eto get the interpreter to talk to the correct DISPLAY output it is currently necessary to use\u003cbr/\u003e\u003ccode\u003ematplotlib.use(\u0026#39;Agg\u0026#39;)\u003c/code\u003e\u003cbr/\u003ethis is a new problem that has been encountered with Python3 and is a known bug. There is a group of maintainers that are trying to make things easier to work with.\u003c/p\u003e\n\u003cp\u003eTo make a graph you need to have matplotlib imported\u003cbr/\u003ethen you can define a graph using the \u003ccode\u003eplt.figure()\u003c/code\u003e\u003cbr/\u003eto add lines to the xy plot you can just add a list of x coords and a corresponding list of y coords. using list comprhensions on an x-range makes this easy to draw complex graphs\u003c/p\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 2, 2017 12:21:08 AM",
+      "dateStarted": "Feb 3, 2017 10:33:59 AM",
+      "dateFinished": "Feb 3, 2017 10:33:59 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nx \u003d [x/10 for x in list(range(0,100))]\ny\u003d[ 3 * x1**2 + 2*x1 + 5 for x1 in x]\nprint(len(x))\nprint(len(y))\nprint(x,y)",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:00 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961937_1492450701",
+      "id": "20170201-133438_1444736269",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "100\n100\n[0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4.0, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8.0, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7, 9.8, 9.9] [5.0, 5.23, 5.52, 5.87, 6.28, 6.75, 7.28, 7.869999999999999, 8.52, 9.23, 10.0, 10.830000000000002, 11.72, 12.67, 13.68, 14.75, 15.880000000000003, 17.07, 18.32, 19.63, 21.0, 22.43, 23.92, 25.47, 27.080000000000002, 28.75, 30.48, 32.27, 34.12, 36.03, 38.0, 40.03000000000001, 42.120000000000005, 44.269999999999996, 46.47999999999999, 48.75, 51.080000000000005, 53.470000000000006, 55.92, 58.42999999999999, 61.0, 63.629999999999995, 66.32, 69.07, 71.88000000000001, 74.75, 77.67999999999999, 80.67000000000002, 83.72, 86.83000000000001, 90.0, 93.23, 96.52000000000001, 99.86999999999999, 103.28000000000002, 106.75, 110.27999999999999, 113.87, 117.52, 121.23, 125.0, 128.82999999999998, 132.72000000000003, 136.67, 140.68000000000004, 144.75, 148.87999999999997, 153.07000000000002, 157.31999999999996, 161.63000000000002, 166.0, 170.42999999999998, 174.92000000000002, 179.47, 184.08000000000004, 188.75, 193.48, 198.27, 203.11999999999998, 208.03000000000003, 213.0, 218.02999999999997, 223.11999999999998, 228.27000000000004, 233.48000000000002, 238.75, 244.07999999999998, 249.46999999999994, 254.92000000000004, 260.43000000000006, 266.0, 271.62999999999994, 277.31999999999994, 283.07000000000005, 288.88000000000005, 294.75, 300.68, 306.66999999999996, 312.7200000000001, 318.83000000000004]\n"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:02 AM",
+      "dateFinished": "Feb 3, 2017 10:34:07 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n## Introduction\nThis tutorial will provide information about structures for working with functional programming. The functional paradigm uses the combination of mathematical formulas and pattern matching methods to simplify and parallelise code.\n\n### Prerequisites\n`matplotlib` must be installed to your local python installation. (use `pip install matplotlib` or `conda install matplotlib` if you have `conda`). Additionally, you will need Zeppelin\u0027s matplotlib backend files which are usually found in `$ZEPPELIN_HOME/lib/python`. Although Zeppelin should automatically find this directory, it might be a good idea to add it to your `PYTHONPATH` just in case. \n\n### Interpreters\nMost of the examples shown in this tutorial can be used interchangeably with either the `python` or `pyspark` interpreters. Iterative plotting using the Angular Display System is currently only available for `pyspark`, but this functionality will eventually be added to the base `python` interpreter. \n\n### macOS\nMake sure locale is set, to avoid `ValueError: unknown locale: UTF-8`\n\n### virtualenv\nIn case you want to use virtualenv or conda env:\n - configure python interpreter property -\u003e `absolute/path/to/venv/bin/python`\n - see *Working with Matplotlib in Virtual environments* in the [Matplotlib FAQ](http://matplotlib.org/faq/virtualenv_faq.html)\n \n### A simple example\nLet\u0027s start by making a very simple line plot:",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:00 AM",
+      "config": {
+        "tableHide": false,
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961937_1492450701",
+      "id": "20160614-174657_1772993700",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eIntroduction\u003c/h2\u003e\n\u003cp\u003eThis tutorial will provide information about structures for working with functional programming. The functional paradigm uses the combination of mathematical formulas and pattern matching methods to simplify and parallelise code.\u003c/p\u003e\n\u003ch3\u003ePrerequisites\u003c/h3\u003e\n\u003cp\u003e\u003ccode\u003ematplotlib\u003c/code\u003e must be installed to your local python installation. (use \u003ccode\u003epip install matplotlib\u003c/code\u003e or \u003ccode\u003econda install matplotlib\u003c/code\u003e if you have \u003ccode\u003econda\u003c/code\u003e). Additionally, you will need Zeppelin\u0026rsquo;s matplotlib backend files which are usually found in \u003ccode\u003e$ZEPPELIN_HOME/lib/python\u003c/code\u003e. Although Zeppelin should automatically find this directory, it might be a good idea to add it to your \u003ccode\u003ePYTHONPATH\u003c/code\u003e just in case. \u003c/p\u003e\n\u003ch3\u003eInterpreters\u003c/h3\u003e\n\u003cp\u003eMost of the examples shown in this tutorial can be used interchangeably with either the \u003ccode\u003epython\u003c/code\u003e or \u003ccode\u003epyspark\u003c/code\u003e interpreters. Iterative plotting using the Angular Display System is currently only available for \u003ccode\u003epyspark\u003c/code\u003e, but this functionality will eventually be added to the base \u003ccode\u003epython\u003c/code\u003e interpreter. \u003c/p\u003e\n\u003ch3\u003emacOS\u003c/h3\u003e\n\u003cp\u003eMake sure locale is set, to avoid \u003ccode\u003eValueError: unknown locale: UTF-8\u003c/code\u003e\u003c/p\u003e\n\u003ch3\u003evirtualenv\u003c/h3\u003e\n\u003cp\u003eIn case you want to use virtualenv or conda env:\u003cbr/\u003e - configure python interpreter property -\u0026gt; \u003ccode\u003eabsolute/path/to/venv/bin/python\u003c/code\u003e\u003cbr/\u003e - see \u003cem\u003eWorking with Matplotlib in Virtual environments\u003c/em\u003e in the \u003ca href\u003d\"http://matplotlib.org/faq/virtualenv_faq.html\"\u003eMatplotlib FAQ\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003eA simple example\u003c/h3\u003e\n\u003cp\u003eLet\u0026rsquo;s start by making a very simple line plot:\u003c/p\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:00 AM",
+      "dateFinished": "Feb 3, 2017 10:34:00 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nimport matplotlib\nmatplotlib.use(\u0027Agg\u0027)\nimport matplotlib.pyplot as plt\nplt.figure()\nplt.plot([2,4,6,8],[1,3,2.7,2])\nplt.plot([1,2,3,4],[1,3,5,7])\nplt.ylabel(\u0027some numbers\u0027)\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:00 AM",
+      "config": {
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/python",
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961938_1493604948",
+      "id": "20161101-192232_289486976",
+      "result": {
+        "code": "ERROR",
+        "type": "HTML",
+        "msg": "Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 298, in displayhook\n    show()\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 71, in __call__\n    manager.show(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 203, in show\n    zdisplay(self.canvas.figure, **kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 285, in zdisplay\n    src \u003d fig.canvas.manager.angular_bind(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 157, in angular_bind\n    src \u003d self.canvas.get_bytes(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 96, in get_bytes\n    byte_str \u003d b\"data:image/%s;base64,\" %fmt\nTypeError: unsupported operand type(s) for %: \u0027bytes\u0027 and \u0027str\u0027\n"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:07 AM",
+      "dateFinished": "Feb 3, 2017 10:34:08 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Plotting matplotlib figures",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:01 AM",
+      "config": {
+        "tableHide": false,
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961939_1493220199",
+      "id": "20160617-002131_1552178409",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003ePlotting matplotlib figures\u003c/h3\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:01 AM",
+      "dateFinished": "Feb 3, 2017 10:34:01 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\n# Figure 2\nplt.figure()\nplt.plot([3, 2, 1])\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:01 AM",
+      "config": {
+        "colWidth": 5.0,
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961941_1490911705",
+      "id": "20161101-193533_2096366908",
+      "result": {
+        "code": "ERROR",
+        "type": "HTML",
+        "msg": "Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 298, in displayhook\n    show()\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 71, in __call__\n    manager.show(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 203, in show\n    zdisplay(self.canvas.figure, **kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 285, in zdisplay\n    src \u003d fig.canvas.manager.angular_bind(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 157, in angular_bind\n    src \u003d self.canvas.get_bytes(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 96, in get_bytes\n    byte_str \u003d b\"data:image/%s;base64,\" %fmt\nTypeError: unsupported operand type(s) for %: \u0027bytes\u0027 and \u0027str\u0027\n"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:07 AM",
+      "dateFinished": "Feb 3, 2017 10:34:08 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nimport os\nos.listdir(\u0027.\u0027)\nimport sys\nsys.version\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:01 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961941_1490911705",
+      "id": "20161221-042119_1457871603",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "[\u0027logs\u0027, \u0027webapps\u0027, \u0027run\u0027, \u0027conf\u0027, \u0027notebook\u0027, \u0027lib\u0027, \u0027LICENSE\u0027, \u0027zeppelin-web-0.7.0-SNAPSHOT.war\u0027, \u0027bin\u0027, \u0027NOTICE\u0027, \u0027interpreter\u0027, \u0027licenses\u0027, \u0027README.md\u0027]\n\u00273.4.2 (default, Oct  8 2014, 10:45:20) \\n[GCC 4.9.1]\u0027\n"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:08 AM",
+      "dateFinished": "Feb 3, 2017 10:34:08 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Changing the default inline plotting behavior\nBoth the `python` and `pyspark` include a built-in function for changing some default inline plotting behavior. For example, we can change the default size of each figure in pixels to 400x300 in svg format using: ",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:02 AM",
+      "config": {
+        "tableHide": false,
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961942_1492065952",
+      "id": "20160614-174421_274483707",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eChanging the default inline plotting behavior\u003c/h3\u003e\n\u003cp\u003eBoth the \u003ccode\u003epython\u003c/code\u003e and \u003ccode\u003epyspark\u003c/code\u003e include a built-in function for changing some default inline plotting behavior. For example, we can change the default size of each figure in pixels to 400x300 in svg format using:\u003c/p\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:02 AM",
+      "dateFinished": "Feb 3, 2017 10:34:02 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n### Iteratively updating a plot\n#### (a) Using multiple plots\nNow let\u0027s show an example where we update each element of the plot in a separate paragraph. However, you may have noticed that each matplotlib figure instance gets closed immediately after its shown. To fix this, we set the `close` property to `False` in our configuration:",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:02 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "graph": {
+          "mode": "table",
+          "height": 394.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961943_1491681203",
+      "id": "20160617-140439_1111727405",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eIteratively updating a plot\u003c/h3\u003e\n\u003ch4\u003e(a) Using multiple plots\u003c/h4\u003e\n\u003cp\u003eNow let\u0026rsquo;s show an example where we update each element of the plot in a separate paragraph. However, you may have noticed that each matplotlib figure instance gets closed immediately after its shown. To fix this, we set the \u003ccode\u003eclose\u003c/code\u003e property to \u003ccode\u003eFalse\u003c/code\u003e in our configuration:\u003c/p\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:02 AM",
+      "dateFinished": "Feb 3, 2017 10:34:02 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "First line",
+      "text": "%python\nplt.plot([1, 82, 3])",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:02 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "graph": {
+          "mode": "table",
+          "height": 389.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961943_1491681203",
+      "id": "20161101-195657_1336292109",
+      "result": {
+        "code": "ERROR",
+        "type": "HTML",
+        "msg": "Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 298, in displayhook\n    show()\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 71, in __call__\n    manager.show(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 203, in show\n    zdisplay(self.canvas.figure, **kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 285, in zdisplay\n    src \u003d fig.canvas.manager.angular_bind(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 157, in angular_bind\n    src \u003d self.canvas.get_bytes(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 96, in get_bytes\n    byte_str \u003d b\"data:image/%s;base64,\" %fmt\nTypeError: unsupported operand type(s) for %: \u0027bytes\u0027 and \u0027str\u0027\n"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:08 AM",
+      "dateFinished": "Feb 3, 2017 10:34:09 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Second line",
+      "text": "%python\nplt.plot([3, 2, 1], label\u003dr\u0027$y\u003d3-x$\u0027)\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:03 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "graph": {
+          "mode": "table",
+          "height": 289.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961944_1489757459",
+      "id": "20161101-195937_907325325",
+      "result": {
+        "code": "ERROR",
+        "type": "HTML",
+        "msg": "Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 298, in displayhook\n    show()\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 71, in __call__\n    manager.show(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 203, in show\n    zdisplay(self.canvas.figure, **kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 285, in zdisplay\n    src \u003d fig.canvas.manager.angular_bind(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 157, in angular_bind\n    src \u003d self.canvas.get_bytes(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 96, in get_bytes\n    byte_str \u003d b\"data:image/%s;base64,\" %fmt\nTypeError: unsupported operand type(s) for %: \u0027bytes\u0027 and \u0027str\u0027\n"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:09 AM",
+      "dateFinished": "Feb 3, 2017 10:34:09 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Label axes",
+      "text": "%python\nplt.xlabel(\u0027x\u0027, fontsize\u003d20)\nplt.ylabel(r\u0027$y$\u0027, fontsize\u003d20)\nplt.legend(loc\u003d\"upper right\")",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:03 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961944_1489757459",
+      "id": "20161101-200014_2113468597",
+      "result": {
+        "code": "ERROR",
+        "type": "HTML",
+        "msg": "Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 298, in displayhook\n    show()\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 71, in __call__\n    manager.show(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 203, in show\n    zdisplay(self.canvas.figure, **kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 285, in zdisplay\n    src \u003d fig.canvas.manager.angular_bind(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 157, in angular_bind\n    src \u003d self.canvas.get_bytes(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 96, in get_bytes\n    byte_str \u003d b\"data:image/%s;base64,\" %fmt\nTypeError: unsupported operand type(s) for %: \u0027bytes\u0027 and \u0027str\u0027\n"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:09 AM",
+      "dateFinished": "Feb 3, 2017 10:34:10 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Add legend",
+      "text": "%python\nplt.legend(loc\u003d\u0027upper center\u0027, fontsize\u003d20)",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:03 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "graph": {
+          "mode": "table",
+          "height": 86.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961944_1489757459",
+      "id": "20161101-200141_1493024813",
+      "result": {
+        "code": "ERROR",
+        "type": "HTML",
+        "msg": "Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 298, in displayhook\n    show()\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 71, in __call__\n    manager.show(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 203, in show\n    zdisplay(self.canvas.figure, **kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 285, in zdisplay\n    src \u003d fig.canvas.manager.angular_bind(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 157, in angular_bind\n    src \u003d self.canvas.get_bytes(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 96, in get_bytes\n    byte_str \u003d b\"data:image/%s;base64,\" %fmt\nTypeError: unsupported operand type(s) for %: \u0027bytes\u0027 and \u0027str\u0027\n"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:10 AM",
+      "dateFinished": "Feb 3, 2017 10:34:10 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Add title",
+      "text": "%python\nplt.title(\u0027Inline plotting example\u0027, fontsize\u003d20)\nplt.xlabel(r\u0027$x$\u0027, fontsize\u003d20)\nplt.ylabel(r\u0027$y$\u0027, fontsize\u003d20)\nplt.plot([3, 2, 1], label\u003dr\u0027$y\u003d3-x$\u0027)\nz.show(plt, width\u003d\u00271500px\u0027)\nplt.close()",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:03 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961945_1489372710",
+      "id": "20161101-200445_78775142",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv style\u003d\u0027width:1500px;height:auto\u0027\u003e\u003cimg src\u003ddata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQCAYAAAByNR6YAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAIABJREFUeJzt3Xl4FVW29/HfSQhjgBCGIPNgRNBABkIAEQKiNIPiQIsTYVIakQaRbm1bfRG0GS6KjCq2onEChEbTAoogBpALMhiEK8hVIZHg1IJAS9uEod4/9iVNSAIpOEmdc/b38zw8QFWlzsqpE/Zi1a69fI7jOAIAAIDfhHkdAAAAQKghwQIAAPAzEiwAAAA/I8ECAADwMxIsAAAAPyPBAgAA8DMSLAAAAD8jwQIAAPAzEiwAAAA/I8ECAADwMxIsAAAAPyPBAgAA8DMSLAAAAD8jwQIAAPAzEiwAAAA/I8ECAADwMxIsAAAAPyPBAgAA8DMSLAAAAD8jwQL8KD09XWFhYXr11VcLbG/SpImaNWvmUVT+kZOTo7CwMA0ZMsTTOAYNGqSwsDB98803nsaBc1uzZo3CwsI0YcIEr0MBPEGCBUgKCwtTeHi4X87l8/mK3FbUdhsVl4Se9vjjjyssLExr164tcj/vJYBgQIIFlIHVq1dr1apVXocRMM6VIJ0vgZo8ebJ27dql+vXrl0ZoAOAX5bwOALBB06ZNvQ4hYDiOc1H7Y2JiFBMT48+QAMDvqGABxThzzlFOTo5uu+021a5dW5UqVVJycrKWLVtW4nMVNQfrzFtlH330kbp27apq1aqpevXq6tOnj7744osiz/Xrr79q0qRJSkhIUGRkpKpWraqOHTtqwYIFrr6/0zEdOXJEI0eOVIMGDVSpUiVdccUVmjVrlqtzff/997rvvvvUtGlTVahQQXXq1NEtt9yiTz/9tMBxXbt2zZ/DdXou1enbs998842aNm2aP2cnNTW1wP7TipqDdaHX6siRI7r//vvVsGFDVapUSS1bttQzzzyjvXv3XtB8sxUrVqhXr16qXbu2KlasqEsvvVQPPvigDh8+XOC4Z555RmFhYfrtb39b6ByrVq1SeHi42rRpo2PHjuVvf+eddzRgwAC1aNEi/7q3bdtWs2bNKjIpPf0+5eTkaPbs2briiitUqVIlNW3aVJMmTco/btGiRUpJSVFkZKRiYmL0+9//vsDrnhYWFqZu3brpu+++04ABAxQTE6PKlSurbdu2mj9/vqv36eeff9bDDz+sVq1aqXLlyoqKilL37t21cuVKV+cBAhkVLOA8srOz1a5dOzVv3lxpaWk6ePCgFi5cqBtvvFGrVq1Sly5dznuO4m55+Xw+vfvuu8rIyFCvXr107733aufOnVq2bJm2bNminTt3Kjo6Ov/4w4cPq2vXrvrss8+UmJiooUOH6tSpU1qxYoXuuOMO7dy5s8STin0+n/Ly8tS9e3cdPnxYt99+u/Ly8vS3v/1No0eP1v/+7/+WKNHKzs7WVVddpe+//17dunXTHXfcoX379mnRokVatmyZlixZol69ekmSBg8erBo1aigjI0M33nij4uPj82OJiorSmDFj9M4772jNmjUaNGiQmjRpUuj9O9ctRDfX6tixY+ratauysrKUmJiou+66S4cPH9bEiRO1bt061/O8JkyYoMcff1w1a9ZUnz59VKdOHW3fvl1PPfWU3nvvPW3YsEGRkZGSpDFjxigzM1NLlizR888/r+HDh0uSfvjhB911112qXLmy3nrrLVWoUCH//A8//LDCw8PVvn171a9fX4cPH9bq1as1evRobdmyRenp6QXiOf0+jR07VmvWrNH111+vHj166O9//7seeeQR5eXlqUaNGnr44Yd10003qXPnzlq5cqXmzJmjU6dOac6cOYW+x59//lkdO3ZUjRo1NGTIEB06dEhvvfWW7rzzTn377bcaO3bsed+nb775Rl26dNE333yjq6++Wj179tTRo0e1dOlS/eY3v9ELL7ygoUOHunrvgYDkAHB8Pp8TFhZWYFt2dnb+9ieeeKLAvhUrVjg+n8/p3bt3ge2vvPKKExYW5qSnpxfY3qRJE6dp06aFjvX5fE5ERITz0UcfFdj38MMPO2FhYc7UqVMLbB84cKATFhbmPPXUUwW2Hzt2zPnNb37jhIeHO5999lmJvucmTZo4YWFhTufOnZ28vLz87T///LPTvHlzJywszFm3bl2h92Pw4MEFznPdddc5YWFhzqRJkwps37Bhg1OuXDmnVq1aztGjRwt830W9R6c9/vjjTlhYmLNmzZoi9w8aNMgJCwtzcnJyCsXm5lpNmDDB8fl8zp133llge25urlO7dm0nLCys0PdanNWrVzs+n8/p1KmTc+TIkQL70tPTHZ/P5zzwwAMFth84cMBp2LChU7lyZWf79u3OqVOnnGuuuabY92bPnj1Fvvbpz8SmTZsKbB80aJDj8/mcpk2bOt99913+9kOHDjm1atVyqlSp4tSpU8fZvXt3/r68vDynVatWTsWKFZ1//OMfBc53+v297bbbCmzPzs52oqOjnQoVKjh79+7N356Zmen4fD5n/PjxBY7v0qWLEx4e7rz11lsFth8+fNiJj493Kleu7Pz4449Ffq9AMOEWIXAejRs31iOPPFJg23XXXadGjRpp06ZNF33+22+/XampqQW2DRs2TI7jFDj/wYMH9cYbb6ht27aFKgXly5fXlClTdOrUKb355puuXn/SpEmKiIjI/3tUVJQee+wxOY6jl19++Zxfu3//fq1cuVKNGjXSH//4xwL72rdvr9tvv10HDx7UkiVLXMV0odxcq/T0dIWHh2vixIkFttevX1/333//eeeCnWnmzJny+Xx64YUXVLVq1QL70tLSFB8frzfeeKPA9ujoaM2fP195eXm69dZb9eijj2r16tW66667lJaWVug1ipvHN2rUKDmOoxUrVhTa5/P59P/+3/9T3bp187dVr15dN9xwg3799VeNGDFCl112Wf6+iIgI9e/fX3l5edq1a1eh84WHh2vy5MkFtjVu3FijRo3S8ePH9dprrxUZ42nbt2/X2rVrdcsttxS6PVqtWjWNHz9e//73v/W3v/3tnOcBggG3CIHziI+PL/J2UcOGDbVx48aLPn9SUlKR55bMLZnTNm/erJMnT8rn82n8+PGFviYvL0+SihwYi1OuXDl16NCh0PbTCV9WVtY5v/70/quvvrrIZS66deum119/XVlZWbrrrrtKHNeFKum1+uc//6k9e/aoUaNGatSoUaHjO3Xq5Op1N27cqIiICL311ltF7s/Ly9M//vEP/fzzz6pRo0b+9quuukoTJkzQI488okmTJqlFixZ67rnnijzHwYMH9V//9V967733tGfPHh09ejR/n8/n0/79+4v8uqI+X/Xq1ZMkJSYmFtp3+unM3NzcQvsaNWqkxo0bF9qempqq8ePHn/fzsmHDBknmVndRn+Eff/xRjuO4+gwDgYoECziPqKioIreXK1dOp06duqhzn557dLbTycrJkyfztx04cECSSbQ2b95c7PnOHHjPp1atWkUmJKcrHmdPzj7b6f2XXHJJkftPbz906FCJY7oYJb1WR44ckaRin0Z0+5TigQMHdPLkyXPOf/P5fPrll18KJFiSdNNNN+VXDIcOHarKlSsX+trDhw+rbdu2ysnJUbt27TRw4EBFR0erXLlyOnTokKZPn17kxHTJVKzOVq5cufPuO378eKF9xb0vJf28nP4Mr1y5stgJ7W4/w0CgIsECgsTpwXDMmDF66qmn/HLOn376SY7jFEqyvv/++wKveb6YTh9/tu+++65E5ylr1apVk2QmlReluO3FqV69uhzH0U8//eTq644dO6bbbrstP9GeMGGC+vbtq9jY2ALH/fWvf1V2drbGjx+vxx57rMC+jRs3avr06a5e90IV9764/bzMmDFDI0eO9G9wQIBhDhYQJNq1a6ewsDCtW7fOb+c8ceKE/vu//7vQ9o8++khS0beQzpSQkCBJ+vjjj4us5q1evVo+n6/AecLDw+U4ToHq3JmKqt75W9WqVdWsWTPt37+/yJY7bt/j9u3b6+eff3Z9a2vMmDHasWOH/vznP2vBggU6evRo/hyoM3399dfy+Xy6+eabC50jMzPT1WtejG+++abI9+v05+X056E47du3l+T+/QWCEQkWECRq166tO++8U1u2bNGTTz5ZZAKyZ88eZWdnuzrvww8/XGBAP3jwoJ588kn5fD4NGjTonF9bv359XXvttcrOztYzzzxTYN8nn3yi+fPnKzo6WjfddFP+9po1a0pSsb0Ea9asKcdxSr3XYFpamk6ePKmHH364wPZ9+/ZpxowZrpZpGDNmjBzH0T333JNftTvTv/71L33yyScFtv3tb3/T888/r06dOunxxx9X9+7d9eCDD2rbtm164IEHChzbpEkTOY5TKJnKysrS5MmTy6x10MmTJ/XQQw8VeABg7969mjlzpiIiIs47zy4pKUlXX321lixZUuwDFP/zP/+jf/zjH36NG/ACtwgBP3Pz9JmbYyVp9uzZ+uqrrzRu3Di99tpr6tSpk2JiYvTtt99q165d2rJli+bPn5+/ftT5XHLJJTp27JiuvPJK3XDDDfnrYJ1eOLQkk71PJwkPPvigPvjgA7Vt21bffPONFi9erPDwcL388suqUqVK/vEdOnRQ5cqVNX36dB04cCB/Xs+oUaNUtWpVde3aVWFhYfrTn/6kHTt25M9ZOvvpwIv14IMP6p133tGCBQv0xRdf6LrrrtOhQ4e0aNEidenSRW+//bbCwkr2f9Bu3bppypQpevjhhxUbG6tevXqpadOm+uWXX5STk6M1a9bo6quv1vLlyyWZ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\u003d\u003d style\u003d\u0027width\u003d1500px;height:auto\u0027\u003e\u003cdiv\u003e\n"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:10 AM",
+      "dateFinished": "Feb 3, 2017 10:34:15 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n####(b) Using a single plot\nTo iteratively update a single plot, we can leverage Zeppelin\u0027s built-in Angular Display System. Currently this feature is only available for the `pyspark` interpreter for raster (png and jpg) formats. To enable this, we must set a special `angular` flag to `True` in our configuration:",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:03 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961945_1489372710",
+      "id": "20161101-200541_1283841564",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e####(b) Using a single plot\u003cbr/\u003eTo iteratively update a single plot, we can leverage Zeppelin\u0026rsquo;s built-in Angular Display System. Currently this feature is only available for the \u003ccode\u003epyspark\u003c/code\u003e interpreter for raster (png and jpg) formats. To enable this, we must set a special \u003ccode\u003eangular\u003c/code\u003e flag to \u003ccode\u003eTrue\u003c/code\u003e in our configuration:\u003c/p\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:03 AM",
+      "dateFinished": "Feb 3, 2017 10:34:03 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "First line (figure will be displayed here)",
+      "text": "%python\nimport matplotlib.pyplot as plt\nplt.close() # Added here to reset the plot when rerunning the paragraph\nplt.configure_mpl(angular\u003dTrue, close\u003dFalse)\nplt.plot([1, 2, 3], label\u003dr\u0027$y\u003dx$\u0027)\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:04 AM",
+      "config": {
+        "colWidth": 7.0,
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "graph": {
+          "mode": "table",
+          "height": 389.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961946_1490526956",
+      "id": "20161101-200754_739212093",
+      "result": {
+        "code": "ERROR",
+        "type": "HTML",
+        "msg": "Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 298, in displayhook\n    show()\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 71, in __call__\n    manager.show(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 203, in show\n    zdisplay(self.canvas.figure, **kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 285, in zdisplay\n    src \u003d fig.canvas.manager.angular_bind(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 157, in angular_bind\n    src \u003d self.canvas.get_bytes(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 96, in get_bytes\n    byte_str \u003d b\"data:image/%s;base64,\" %fmt\nTypeError: unsupported operand type(s) for %: \u0027bytes\u0027 and \u0027str\u0027\n"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:11 AM",
+      "dateFinished": "Feb 3, 2017 10:34:16 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Second line",
+      "text": "%python\nplt.plot([3, 2, 1], label\u003dr\u0027$y\u003d3-x$\u0027)\n\nplt.plot([1, 2, 3], label\u003dr\u0027$y\u003d3-x$\u0027)\nz.show(plt, width\u003d\u00271500px\u0027)\nplt.close()",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:04 AM",
+      "config": {
+        "colWidth": 5.0,
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961946_1490526956",
+      "id": "20161101-200854_1676504884",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv style\u003d\u0027width:1500px;height:auto\u0027\u003e\u003cimg src\u003ddata:image/png;base64,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 style\u003d\u0027width\u003d1500px;height:auto\u0027\u003e\u003cdiv\u003e\n"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:16 AM",
+      "dateFinished": "Feb 3, 2017 10:34:22 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Label axes",
+      "text": "%python\nplt.xlabel(r\u0027$x$\u0027, fontsize\u003d20)\nplt.ylabel(r\u0027$y$\u0027, fontsize\u003d20)",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:04 AM",
+      "config": {
+        "colWidth": 5.0,
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961947_1490142208",
+      "id": "20161101-200851_314384892",
+      "result": {
+        "code": "ERROR",
+        "type": "HTML",
+        "msg": "Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 298, in displayhook\n    show()\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 71, in __call__\n    manager.show(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 203, in show\n    zdisplay(self.canvas.figure, **kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 285, in zdisplay\n    src \u003d fig.canvas.manager.angular_bind(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 157, in angular_bind\n    src \u003d self.canvas.get_bytes(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 96, in get_bytes\n    byte_str \u003d b\"data:image/%s;base64,\" %fmt\nTypeError: unsupported operand type(s) for %: \u0027bytes\u0027 and \u0027str\u0027\n"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:16 AM",
+      "dateFinished": "Feb 3, 2017 10:34:22 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Add legend",
+      "text": "%python\nplt.legend(loc\u003d\u0027upper center\u0027, fontsize\u003d20)",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:04 AM",
+      "config": {
+        "colWidth": 5.0,
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961947_1490142208",
+      "id": "20161101-201552_651686132",
+      "result": {
+        "code": "ERROR",
+        "type": "HTML",
+        "msg": "Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 298, in displayhook\n    show()\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 71, in __call__\n    manager.show(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 203, in show\n    zdisplay(self.canvas.figure, **kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 285, in zdisplay\n    src \u003d fig.canvas.manager.angular_bind(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 157, in angular_bind\n    src \u003d self.canvas.get_bytes(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 96, in get_bytes\n    byte_str \u003d b\"data:image/%s;base64,\" %fmt\nTypeError: unsupported operand type(s) for %: \u0027bytes\u0027 and \u0027str\u0027\n"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:22 AM",
+      "dateFinished": "Feb 3, 2017 10:34:22 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Add title",
+      "text": "%python\nplt.title(\u0027Inline plotting example\u0027, fontsize\u003d20)",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:04 AM",
+      "config": {
+        "colWidth": 5.0,
+        "editorMode": "ace/mode/python",
+        "title": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961947_1490142208",
+      "id": "20161101-202024_1645454710",
+      "result": {
+        "code": "ERROR",
+        "type": "HTML",
+        "msg": "Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 298, in displayhook\n    show()\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 71, in __call__\n    manager.show(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 203, in show\n    zdisplay(self.canvas.figure, **kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 285, in zdisplay\n    src \u003d fig.canvas.manager.angular_bind(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 157, in angular_bind\n    src \u003d self.canvas.get_bytes(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 96, in get_bytes\n    byte_str \u003d b\"data:image/%s;base64,\" %fmt\nTypeError: unsupported operand type(s) for %: \u0027bytes\u0027 and \u0027str\u0027\n"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:22 AM",
+      "dateFinished": "Feb 3, 2017 10:34:23 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\r\nimport numpy as np\r\nimport matplotlib.pyplot as plt\r\n\r\n# Fixing random state for reproducibility\r\nnp.random.seed(19680801)\r\n\r\nmu, sigma \u003d 100, 15\r\nx \u003d mu + sigma * np.random.randn(10000)\r\n\r\n# the histogram of the data\r\nn, bins, patches \u003d plt.hist(x, 50, normed\u003d1, facecolor\u003d\u0027g\u0027, alpha\u003d0.75)\r\n\r\nplt.xlabel(\u0027Smarts\u0027)\r\nplt.ylabel(\u0027Probability\u0027)\r\nplt.title(\u0027Histogram of IQ\u0027)\r\nplt.text(60, .025, r\u0027$\\mu\u003d100,\\ \\sigma\u003d15$\u0027)\r\nplt.axis([40, 160, 0, 0.03])\r\nplt.grid(True)",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:04 AM",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485986961948_1488218463",
+      "id": "20161102-124716_1703649609",
+      "result": {
+        "code": "ERROR",
+        "type": "HTML",
+        "msg": "Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 298, in displayhook\n    show()\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 71, in __call__\n    manager.show(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 203, in show\n    zdisplay(self.canvas.figure, **kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 285, in zdisplay\n    src \u003d fig.canvas.manager.angular_bind(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 157, in angular_bind\n    src \u003d self.canvas.get_bytes(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 96, in get_bytes\n    byte_str \u003d b\"data:image/%s;base64,\" %fmt\nTypeError: unsupported operand type(s) for %: \u0027bytes\u0027 and \u0027str\u0027\n"
+      },
+      "dateCreated": "Feb 1, 2017 10:09:21 PM",
+      "dateStarted": "Feb 3, 2017 10:34:23 AM",
+      "dateFinished": "Feb 3, 2017 10:34:39 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nimport matplotlib as mpl\nfrom mpl_toolkits.mplot3d import Axes3D\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nmpl.rcParams[\u0027legend.fontsize\u0027] \u003d 10\n\nfig \u003d plt.figure()\nax \u003d fig.gca(projection\u003d\u00273d\u0027)\ntheta \u003d np.linspace(-4 * np.pi, 4 * np.pi, 100)\nh \u003d np.linspace(-2, 2, 100)\nr \u003d h**2 + 1\nx \u003d r * np.sin(theta)\ny \u003d r * np.cos(theta)\nax.plot(x, y, h, label\u003d\u0027davids parametric spiraling curve\u0027)\nax.legend()",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:04 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485996661918_-1215109829",
+      "id": "20170202-005101_1985395822",
+      "result": {
+        "code": "ERROR",
+        "type": "HTML",
+        "msg": "Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 298, in displayhook\n    show()\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 71, in __call__\n    manager.show(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 203, in show\n    zdisplay(self.canvas.figure, **kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 285, in zdisplay\n    src \u003d fig.canvas.manager.angular_bind(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 157, in angular_bind\n    src \u003d self.canvas.get_bytes(**kwargs)\n  File \"/usr/zeppelin/interpreter/lib/python/backend_zinline.py\", line 96, in get_bytes\n    byte_str \u003d b\"data:image/%s;base64,\" %fmt\nTypeError: unsupported operand type(s) for %: \u0027bytes\u0027 and \u0027str\u0027\n"
+      },
+      "dateCreated": "Feb 2, 2017 12:51:01 AM",
+      "dateStarted": "Feb 3, 2017 10:34:23 AM",
+      "dateFinished": "Feb 3, 2017 10:34:40 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nfmt\u003d\"dfr\"\ntype(fmt)\nbyte_str \u003d str.encode(\u0027\u0027.join([\"data:image/\",fmt,\";base64,\"]))\ntype(byte_str)\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:05 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485996869025_988265044",
+      "id": "20170202-005429_1060794043",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "\u003cclass \u0027str\u0027\u003e\n\u003cclass \u0027bytes\u0027\u003e\n"
+      },
+      "dateCreated": "Feb 2, 2017 12:54:29 AM",
+      "dateStarted": "Feb 3, 2017 10:34:39 AM",
+      "dateFinished": "Feb 3, 2017 10:34:40 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:34:05 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1485998055207_-1434224066",
+      "id": "20170202-011415_134180302",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
+      "dateCreated": "Feb 2, 2017 1:14:15 AM",
+      "dateStarted": "Feb 3, 2017 10:34:40 AM",
+      "dateFinished": "Feb 3, 2017 10:34:40 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "David/Functional Programming demonstrations",
+  "id": "2C94GYNAS",
+  "angularObjects": {
+    "2CA9WM29S:shared_process": [],
+    "2C8YE84SE:shared_process": [],
+    "2C7DTJ6B4:shared_process": [],
+    "2C99X19WM:shared_process": [],
+    "2CAU2P4DN:shared_process": [],
+    "2C8F7RDT4:shared_process": [],
+    "2C79FGWKF:shared_process": [],
+    "2CANTY4TM:shared_process": [],
+    "2C7FYG9R4:shared_process": []
+  },
+  "config": {
+    "looknfeel": "default"
+  },
+  "info": {}
+}

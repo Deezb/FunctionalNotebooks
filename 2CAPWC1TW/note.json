@@ -1,0 +1,348 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n# Higher Order Functions\n\n### Functions as First Class Citizens\nOne of the defining characteristics of functional languages, is the treatment of functions as first class citizens within the paradigm.  What is meant by this, is that functions within the language should be capable of being:  \n\n1. Named by variables\n2. Passed as arguments to functions\n3. Returned as results from functions\n4. Can be included in Data-Structures\n\n### Demonstrations of the above properties\n\n\u003cbr\u003e\n##### 1. Named/referenced by variable\n\n```scala\n\n// A function which takes an integer x, and returns that value doubled\nval double \u003d (x: Int) \u003d\u003e x * 2\ndouble(4) // produces `8`\n\nval doubleAlias \u003d double\ndoubleAlias(5) // produces 10\n```\n\nIn the above example, we have simply defined a function type, and assigned it to a `val` named double.\nInvokation of the defined function can be acheived by passing the required arguments, or in the case of functions with no arguments, empty parenthesis.\n\n\u003cbr\u003e\n\n##### 2. Passed as arguments to functions\n\n```scala\n\nval double \u003d (x: Int) \u003d\u003e x * 2\nval funcAcceptingFunc \u003d (f: (Int) \u003d\u003e Int, number: Int) \u003d\u003e f(number) * number\n\nfuncAcceptingFunc(double, 2) // produces `8`\n\n//Note that `funcAcceptingFunc\u0027 does not care about the implementation of f, only that it takes an Int \n//and returns an Int.  This in some ways for programmers coming from OOP background can be likend to a poly //morphic method, though without all the inheritance hierarchy needed to acheive it!\n\n```\n\nIn the rather contrived example above, we have defined two functions.\n\nThe first function `double`, simply takes an `Int`, and multiplies it by 2 to produce an `Int`.  The type of this val is therefore: `(Int) \u003d\u003e Int`.  The second function `funcAcceptingFunc`, takes **any** function of type `(Int) \u003d\u003e Int`, and names it `f` for the duration of the function.  It additionally accepts an argument `number`, which is of type `Int`.  The body of this function, calls the passed in function with the argument `number`, and multiplies the return of that call by `number`.  \n\nFor now, simply appreciate the mechanics of this function passing approach.  The benefits of such an approach will be explained in a more concrete and applicable to everyday programming example shortly.  \n\n\u003cbr\u003e\n\n##### 3. Returned as results from functions\n\n```scala\n\nval decideWhichPostalServiceToUse \u003d (letterAddress: String) \u003d\u003e {\n    if(letterAddress \u003d\u003d \"America\") {\n        \n        // Note that just like other first class entities in the language, \n        // function literals (unnamed) may be created without explicit names.\n        // For example, 5 is simply an `Int` which has no name assigned to it.\n        \n        (letterContent: String) \u003d\u003e println(s\"Sending $letterContent, via internation post!\")\n    } else {\n        (letterContent: String) \u003d\u003e println(s\"Sending via national post!\")\n    }\n}\n\nval letterAddress \u003d \"America\"\nval letterContent \u003d \"Hello from Ireland\"\n\n// Will return the appropriate mail dispatcher\nval postalService \u003d decideWhichPostalServiceToUse(letterAddress)\n\npostalService(letterContent) // Will println out \"Sending Hello from Ireland, via international post!\"\n\n```\n\nAgain, via a rather contrieved example, the mechanics of returning a function from another function are simply to have that function as the last statement in the invoked function.\n\n\u003cbr\u003e\n\n##### 4. Can be included in Data-Structures\n\nAgain, for simplicity, a perhaps not all too realistic example: \n\n```scala \n\n// In this case, our functions take no parameters.\nval byCreditCard    \u003d () \u003d\u003e \"asked for pin\"\nval byCash          \u003d () \u003d\u003e \"wrote reciept\"\nval byTab           \u003d () \u003d\u003e \"started tab\"\n\n// Store all possible actions when paying in a Map.\nval payBy           \u003d Map(\"card\" -\u003e byCreditCard, \"cash\" -\u003e byCash, \"tab\" -\u003e byTab)\n\n// Suppose now we have a customer ... \nval bob \u003d \"Bob\"\n\n// And a function which allows him to pay ... \nval cashier \u003d (customer: String, amount: Double, methodOfPayment: String) \u003d\u003e {\n    \n    // Lookup the desired funtion in our datastructure.\n    val dealWithPayment \u003d payBy(methodOfPayment)\n    \n    // Invoke the function\n    val whatCashierDid \u003d dealWithPayment()\n\n    println(s\"$customer payed $amount.  Cashier $whatCashierDid\")\n    \n}\n\n// We may now execute a payment via ... \n\ncashier(bob, 100.0, \"cash\") // Prints:  Bob payed 100.0.  Cashier wrote reciept\ncashier(bob, 100.0, \"card\") // Prints:  Bob payed 100.0.  Cashier asked for pin\ncashier(bob, 100.0, \"tab\")  // Prints:  Bob payed 100.0.  Cashier started tab\n\n```\n\n\u003cbr\u003e\n\n### First Class Functions Enable Higher Order Functions\n\nA Higher Order Function (HOF), is simply realised by a language treating functions as first class citizens. They are concretely, functions which take a function as a parameter, or return another function as a result, as in some of the examples above.  This is useful for many reasons, and not only in acedemic or made up examples.  In order to identify one of the most widely used applications of HOF\u0027s, it may be beneficial to first step back to a more Imperative approach to programming ... ",
+      "dateUpdated": "Feb 3, 2017 10:41:38 AM",
+      "config": {
+        "tableHide": false,
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 7.0,
+        "editorHide": true,
+        "enabled": true,
+        "graph": {
+          "mode": "table",
+          "height": 1358.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        }
+      },
+      "settings": {
+        "params": {
+          "payBy": ""
+        },
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1486118498853_1542136840",
+      "id": "20170130-221237_1038500617",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch1\u003eHigher Order Functions\u003c/h1\u003e\n\u003ch3\u003eFunctions as First Class Citizens\u003c/h3\u003e\n\u003cp\u003eOne of the defining characteristics of functional languages, is the treatment of functions as first class citizens within the paradigm.  What is meant by this, is that functions within the language should be capable of being:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eNamed by variables\u003c/li\u003e\n\u003cli\u003ePassed as arguments to functions\u003c/li\u003e\n\u003cli\u003eReturned as results from functions\u003c/li\u003e\n\u003cli\u003eCan be included in Data-Structures\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch3\u003eDemonstrations of the above properties\u003c/h3\u003e\n\u003cp\u003e\u003cbr\u003e\u003c/p\u003e\n\u003ch5\u003e1. Named/referenced by variable\u003c/h5\u003e\n\u003cpre\u003e\u003ccode class\u003d\"scala\"\u003e// A function which takes an integer x, and returns that value doubled\nval double \u003d (x: Int) \u003d\u0026gt; x * 2\ndouble(4) // produces `8`\n\nval doubleAlias \u003d double\ndoubleAlias(5) // produces 10\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIn the above example, we have simply defined a function type, and assigned it to a \u003ccode\u003eval\u003c/code\u003e named double.\n\u003cbr  /\u003eInvokation of the defined function can be acheived by passing the required arguments, or in the case of functions with no arguments, empty parenthesis.\u003c/p\u003e\n\u003cp\u003e\u003cbr\u003e\u003c/p\u003e\n\u003ch5\u003e2. Passed as arguments to functions\u003c/h5\u003e\n\u003cpre\u003e\u003ccode class\u003d\"scala\"\u003eval double \u003d (x: Int) \u003d\u0026gt; x * 2\nval funcAcceptingFunc \u003d (f: (Int) \u003d\u0026gt; Int, number: Int) \u003d\u0026gt; f(number) * number\n\nfuncAcceptingFunc(double, 2) // produces `8`\n\n//Note that `funcAcceptingFunc\u0027 does not care about the implementation of f, only that it takes an Int \n//and returns an Int.  This in some ways for programmers coming from OOP background can be likend to a poly //morphic method, though without all the inheritance hierarchy needed to acheive it!\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIn the rather contrived example above, we have defined two functions.\u003c/p\u003e\n\u003cp\u003eThe first function \u003ccode\u003edouble\u003c/code\u003e, simply takes an \u003ccode\u003eInt\u003c/code\u003e, and multiplies it by 2 to produce an \u003ccode\u003eInt\u003c/code\u003e.  The type of this val is therefore: \u003ccode\u003e(Int) \u003d\u0026gt; Int\u003c/code\u003e.  The second function \u003ccode\u003efuncAcceptingFunc\u003c/code\u003e, takes \u003cstrong\u003eany\u003c/strong\u003e function of type \u003ccode\u003e(Int) \u003d\u0026gt; Int\u003c/code\u003e, and names it \u003ccode\u003ef\u003c/code\u003e for the duration of the function.  It additionally accepts an argument \u003ccode\u003enumber\u003c/code\u003e, which is of type \u003ccode\u003eInt\u003c/code\u003e.  The body of this function, calls the passed in function with the argument \u003ccode\u003enumber\u003c/code\u003e, and multiplies the return of that call by \u003ccode\u003enumber\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eFor now, simply appreciate the mechanics of this function passing approach.  The benefits of such an approach will be explained in a more concrete and applicable to everyday programming example shortly.\u003c/p\u003e\n\u003cp\u003e\u003cbr\u003e\u003c/p\u003e\n\u003ch5\u003e3. Returned as results from functions\u003c/h5\u003e\n\u003cpre\u003e\u003ccode class\u003d\"scala\"\u003eval decideWhichPostalServiceToUse \u003d (letterAddress: String) \u003d\u0026gt; {\n    if(letterAddress \u003d\u003d \"America\") {\n\n        // Note that just like other first class entities in the language, \n        // function literals (unnamed) may be created without explicit names.\n        // For example, 5 is simply an `Int` which has no name assigned to it.\n\n        (letterContent: String) \u003d\u0026gt; println(s\"Sending $letterContent, via internation post!\")\n    } else {\n        (letterContent: String) \u003d\u0026gt; println(s\"Sending via national post!\")\n    }\n}\n\nval letterAddress \u003d \"America\"\nval letterContent \u003d \"Hello from Ireland\"\n\n// Will return the appropriate mail dispatcher\nval postalService \u003d decideWhichPostalServiceToUse(letterAddress)\n\npostalService(letterContent) // Will println out \"Sending Hello from Ireland, via international post!\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eAgain, via a rather contrieved example, the mechanics of returning a function from another function are simply to have that function as the last statement in the invoked function.\u003c/p\u003e\n\u003cp\u003e\u003cbr\u003e\u003c/p\u003e\n\u003ch5\u003e4. Can be included in Data-Structures\u003c/h5\u003e\n\u003cp\u003eAgain, for simplicity, a perhaps not all too realistic example:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"scala\"\u003e// In this case, our functions take no parameters.\nval byCreditCard    \u003d () \u003d\u0026gt; \"asked for pin\"\nval byCash          \u003d () \u003d\u0026gt; \"wrote reciept\"\nval byTab           \u003d () \u003d\u0026gt; \"started tab\"\n\n// Store all possible actions when paying in a Map.\nval payBy           \u003d Map(\"card\" -\u0026gt; byCreditCard, \"cash\" -\u0026gt; byCash, \"tab\" -\u0026gt; byTab)\n\n// Suppose now we have a customer ... \nval bob \u003d \"Bob\"\n\n// And a function which allows him to pay ... \nval cashier \u003d (customer: String, amount: Double, methodOfPayment: String) \u003d\u0026gt; {\n\n    // Lookup the desired funtion in our datastructure.\n    val dealWithPayment \u003d payBy(methodOfPayment)\n\n    // Invoke the function\n    val whatCashierDid \u003d dealWithPayment()\n\n    println(s\"$customer payed $amount.  Cashier $whatCashierDid\")\n\n}\n\n// We may now execute a payment via ... \n\ncashier(bob, 100.0, \"cash\") // Prints:  Bob payed 100.0.  Cashier wrote reciept\ncashier(bob, 100.0, \"card\") // Prints:  Bob payed 100.0.  Cashier asked for pin\ncashier(bob, 100.0, \"tab\")  // Prints:  Bob payed 100.0.  Cashier started tab\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cbr\u003e\u003c/p\u003e\n\u003ch3\u003eFirst Class Functions Enable Higher Order Functions\u003c/h3\u003e\n\u003cp\u003eA Higher Order Function (HOF), is simply realised by a language treating functions as first class citizens. They are concretely, functions which take a function as a parameter, or return another function as a result, as in some of the examples above.  This is useful for many reasons, and not only in acedemic or made up examples.  In order to identify one of the most widely used applications of HOF\u0027s, it may be beneficial to first step back to a more Imperative approach to programming \u0026hellip;\u003c/p\u003e\n"
+      },
+      "dateCreated": "Feb 3, 2017 10:41:38 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Click run for an outline of Scala syntax needed for this discussion",
+      "text": "%md \n\n### Values and Variables\n\nIn Scala, Immutable values are encouraged.  In place of variables, `val`s are more commonly used as the default declaration for a value.\n\n```scala\nval x: Int \u003d 5\nx \u003d 6 //Not allowed!\n```\n\nThe above essentially equivalent to a final int in Java.\n\n```scala \nvar x: Int \u003d 5\nx \u003d 6 //Allowed, but not encouraged!\n```\n\n### Type Inference for Less Boilerplate\n\nIt should be appearant that the general form for declaring a variable in Scala follows the pattern:  \n\n```scala \n// var|val \u003cVariable_name\u003e: \u003cVariable_Type\u003e \u003d \u003cValue\nval x: Int \u003d 5\n```\n\nThis is fine, and perfectly readable, however as we shall see later, the types in scala may become particularly complex.  To help with this, Scala uses a mechanism known as `Type Inference`, which allows the compiler to infer the type of a variable where ever possible.  \n\nThis allows us to write the following: \n\n```scala\nval x \u003d 5\nval s \u003d \"Type Inference is Awesome!\"\n```\n\n\n### Function Types\n\nAs Scala is both and Object Oriented and Functional language, it makes sure to differenciate clearly between `functions` and `methods`.\n\nA method exists inside a class, and is very similar to Java\u0027s methods:\n\n```scala\nclass FunkyFuncs {\n    \n    def myMethod(x: Int, y: Int): Int \u003d {\n        return x + y\n    }\n    \n    //Note however, that the final line in a Scala function\n    //is the methods return value.  Additionally using type inference\n    //and lack of a requirement for parathesis around a single \n    //line function, the above may be also constructed as ... \n    \n    def myMethodShorter(x: Int, y: Int) \u003d x + y\n    \n}\n```\n\nA function on the other hand, is essentially a variable which is assigned a function definition.  IE, a value which takes 0 or more arguments, and returns a value as a result.\n\n```scala\nval f: (Int, Int) \u003d\u003e Int \u003d (x, y) \u003d\u003e x + y\nf(1, 3) // Produces `4`\n\n//Or with Type Inference!\nval f \u003d (x: Int, y: Int) \u003d\u003e x + y\n```\n\nWe can now see that function definitions take the form:\n```\nval|var \u003cname\u003e: (\u003carg0\u003e, ... , \u003cargN\u003e) \u003d\u003e \u003cbody\u003e \n```",
+      "dateUpdated": "Feb 3, 2017 10:41:38 AM",
+      "config": {
+        "tableHide": false,
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 5.0,
+        "editorHide": true,
+        "title": true,
+        "enabled": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1486118498854_1543291087",
+      "id": "20170131-190426_1304703861",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eValues and Variables\u003c/h3\u003e\n\u003cp\u003eIn Scala, Immutable values are encouraged.  In place of variables, \u003ccode\u003eval\u003c/code\u003es are more commonly used as the default declaration for a value.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"scala\"\u003eval x: Int \u003d 5\nx \u003d 6 //Not allowed!\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe above essentially equivalent to a final int in Java.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"scala\"\u003evar x: Int \u003d 5\nx \u003d 6 //Allowed, but not encouraged!\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003eType Inference for Less Boilerplate\u003c/h3\u003e\n\u003cp\u003eIt should be appearant that the general form for declaring a variable in Scala follows the pattern:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"scala\"\u003e// var|val \u0026lt;Variable_name\u0026gt;: \u0026lt;Variable_Type\u0026gt; \u003d \u0026lt;Value\nval x: Int \u003d 5\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThis is fine, and perfectly readable, however as we shall see later, the types in scala may become particularly complex.  To help with this, Scala uses a mechanism known as \u003ccode\u003eType Inference\u003c/code\u003e, which allows the compiler to infer the type of a variable where ever possible.\u003c/p\u003e\n\u003cp\u003eThis allows us to write the following:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"scala\"\u003eval x \u003d 5\nval s \u003d \"Type Inference is Awesome!\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003eFunction Types\u003c/h3\u003e\n\u003cp\u003eAs Scala is both and Object Oriented and Functional language, it makes sure to differenciate clearly between \u003ccode\u003efunctions\u003c/code\u003e and \u003ccode\u003emethods\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eA method exists inside a class, and is very similar to Java\u0027s methods:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"scala\"\u003eclass FunkyFuncs {\n\n    def myMethod(x: Int, y: Int): Int \u003d {\n        return x + y\n    }\n\n    //Note however, that the final line in a Scala function\n    //is the methods return value.  Additionally using type inference\n    //and lack of a requirement for parathesis around a single \n    //line function, the above may be also constructed as ... \n\n    def myMethodShorter(x: Int, y: Int) \u003d x + y\n\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eA function on the other hand, is essentially a variable which is assigned a function definition.  IE, a value which takes 0 or more arguments, and returns a value as a result.\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"scala\"\u003eval f: (Int, Int) \u003d\u0026gt; Int \u003d (x, y) \u003d\u0026gt; x + y\nf(1, 3) // Produces `4`\n\n//Or with Type Inference!\nval f \u003d (x: Int, y: Int) \u003d\u0026gt; x + y\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWe can now see that function definitions take the form:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eval|var \u0026lt;name\u0026gt;: (\u0026lt;arg0\u0026gt;, ... , \u0026lt;argN\u0026gt;) \u003d\u0026gt; \u0026lt;body\u0026gt; \n\u003c/code\u003e\u003c/pre\u003e\n"
+      },
+      "dateCreated": "Feb 3, 2017 10:41:38 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n### Imperative vs Functional Sequence Loop\n\n##### The Imperative Approach \n\nLooping over collections of objects or primative types occurs everywhere in imperative programming.  Every imperative programmer will be familiar with `for` loops in particular.  Consider the follow snippet in Java: \n\n```java\n\npublic static ArrayList\u003cString\u003e convertToUpperCase(ArrayList\u003cString\u003e theList) {\n\n    for(int i \u003d 0; i \u003c theList.size(); i++) {\n\t    theList.set(i, theList.get(i).toUpperCase());\n    }\n\n    return theList;\n}\n  \npublic static void main(String[] args) {    \n\n    ArrayList\u003cString\u003e names \u003d new ArrayList\u003c\u003e();\n    names.add(\"liam\");\n    names.add(\"david\");\n    names.add(\"sam\");\n    names.add(\"jerry\");\n    convertToUpperCase(names);\n    System.out.print(names);  // Prints [LIAM, DAVID, SAM, JERRY]\n}\n\n```\n\nIn the typically imperative style, the programmer outlines exactly how the execution of the program will proceed.  It is an abstraction over the machine, which provides an easier and higher level way of using register counters and boolean tests to loop over a sequence.  *Initialise an `int` counter named `i`, test to see if `i` is less than the size of our sequence, if it is, progress, if not halt.  During the loop, perform some operation and finish the loop body by `incrementing` the loop counter.*\n\nSome time passes, and we now realise that we wish to add a title to each of the names in our collection:\n\n```java\n\npublic static ArrayList\u003cString\u003e prependTitle(ArrayList\u003cString\u003e theList) {\n\n    for(int i \u003d 0; i \u003c theList.size(); i++) {\n\t    theList.set(i, \"MR. \" + theList.get(i));\n    }\n\n    return theList;\n}\n\npublic static ArrayList\u003cString\u003e convertToUpperCase(ArrayList\u003cString\u003e theList) {\n\n    for(int i \u003d 0; i \u003c theList.size(); i++) {\n\t    theList.set(i, theList.get(i).toUpperCase());\n    }\n\n    return theList;\n}\n  \npublic static void main(String[] args) {    \n\n    ArrayList\u003cString\u003e names \u003d new ArrayList\u003c\u003e();\n    names.add(\"liam\");\n    names.add(\"david\");\n    names.add(\"sam\");\n    names.add(\"jerry\");\n    convertToUpperCase(names);\n    prependTitle(names);\n    System.out.print(names);  // Prints [MR. LIAM, MR. DAVID, MR. SAM, MR. JERRY]\n}\n```\n\nWe have introduced an additional function named `prependTitle`, which performs another operation on our list before returning.  The similarities in form between the two functions should be readily visible in this simplified form.  However, we are forced to implement the same loop two in order to before these two operations to our ArrayList of Strings.  This not only leads to a greater amount of code, but also introduces more chance for logic errors, and index out of bounds exceptions.  Index out of bounds exceptions could of course be eliminated via a more advanced foreach loop on this particular collection, however we are still faced with the duplicated logic of the extremely common task of **looping over each item in a collection once, and applying some operation to the data at the position**\n\n##### Eliminating Code Duplication, and Providing a Higher Level of Abstraction via HOFs\n\nAs an example of how the above Java can be expressed in a more abstract way using what we know already about Higher Order Functions, and Functions as first class citizens.\n\nWe will proceed from our existing implementation converted to Scala: \n\n```scala\n\n/**\n    * Scala has no concept of a for loop, though we implement\n    * the same using a while.\n    * Scala additionally does not allow the passing of mutable/changeable\n    * references in to functions, for reasons which will be described\n    * much later.\n    */\n\n  val prependTitle \u003d (theList: List[String]) \u003d\u003e {\n    var alteredList: List[String] \u003d List()\n    var i \u003d 0\n    while (i \u003c theList.size) {\n      alteredList \u003d (\"MR. \" + theList(i)) :: alteredList\n      i \u003d i + 1\n    }\n    alteredList\n  }\n\n  val convertToUpperCase \u003d (theList: List[String]) \u003d\u003e {\n    var alteredList: List[String] \u003d List()\n    var i \u003d 0\n    while (i \u003c theList.size) {\n      alteredList \u003d theList(i).toUpperCase :: alteredList\n      i \u003d i + 1\n    }\n    alteredList\n  }\n\n  var names \u003d List(\"liam\", \"david\", \"sam\", \"jerry\")\n  names \u003d convertToUpperCase(names)\n  println(names) // Prints: List(JERRY, SAM, DAVID, LIAM)\n\n  names \u003d prependTitle(names)\n  println(names) // Prints: List(MR. LIAM, MR. DAVID, MR. SAM, MR. JERRY)\n  \n```\n\nTo take advantage of HOF\u0027s to solve our code duplication issue, we should first factor out what is common between the functions `prependTitle`, and `convertToUppercase`.  The code which we are seeking to abstract over, can be summed up as follows: \n\n```\nperformActionToList(theList, performSomeActionToElement):\n    i \u003d 0\n    while i \u003c theList:\n        theList \u003d theList.updated(i, `performSomeActionToElement(theList(i))`)\n        i \u003d i + 1\n    return theList\n```\n\nWe can see from the above sample, that `performSomeActionToElement(theList(i))`, is a prime condidate for abstracting a loop via HOF\u0027s.  In this case, our `performSomeActionToElement(theList(i))` type, is a function which takes some element of type T, and returns a T as its result.  For a more concrete example in Scala, \nwe will now factor out our loop:\n\n```scala\n\n// Our new factored out looping construct\n\n  val performActionToList \u003d (theList: List[String], performSomeActionToElement: (String) \u003d\u003e String) \u003d\u003e {\n    var alteredList: List[String] \u003d List()\n    var i \u003d 0\n    while (i \u003c theList.size) {\n      alteredList \u003d performSomeActionToElement(theList(i)) :: alteredList\n      i \u003d i + 1\n    }\n    alteredList\n  }\n\n  // Our new restructured operations on our collection\n  val convertToUpperCase  \u003d (theList: List[String]) \u003d\u003e performActionToList(theList, (elem: String) \u003d\u003e elem.toUpperCase)\n  val prependTitle        \u003d (theList: List[String]) \u003d\u003e performActionToList(theList, (elem: String) \u003d\u003e \"MR. \" + elem)\n\n  var names \u003d List(\"liam\", \"david\", \"sam\", \"jerry\")\n  names \u003d convertToUpperCase(names)\n  println(names) // Prints:  List(JERRY, SAM, DAVID, LIAM)\n\n  names \u003d prependTitle(names)\n  println(names) // Prints:  List(MR. LIAM, MR. DAVID, MR. SAM, MR. JERRY)\n  \n\n```\n\nThe same effect has now been acheived, and our code, is much shorter, with fewer loops.  However, upon inspection, there are further oppurtunities for conciseness given that the functions `convertToUpperCase` and `prependTitle`, are meerly inbetween functions to define an anonymous function which takes a String and returns a String to pass on to `performActionToList`.\n\nConsider the following: \n\n```scala\n\n    val performActionToList \u003d (theList: List[String], performSomeActionToElement: (String) \u003d\u003e String) \u003d\u003e {\n        var alteredList: List[String] \u003d List()\n        var i \u003d 0\n        while (i \u003c theList.size) {\n            alteredList \u003d performSomeActionToElement(theList(i)) :: alteredList\n            i \u003d i + 1\n        }\n        alteredList\n    }\n\n    var names \u003d List(\"liam\", \"david\", \"sam\", \"jerry\")\n  \n    // We now define the operation we would like applied to each element of the list inline via anonymous functions\n    names \u003d performActionToList(names, (elem: String) \u003d\u003e elem.toUpperCase)\n    println(names) // Prints:  List(JERRY, SAM, DAVID, LIAM)\n\n    names \u003d performActionToList(names, (elem: String) \u003d\u003e \"MR. \" + elem)\n    println(names) // Prints:  List(MR. LIAM, MR. DAVID, MR. SAM, MR. JERRY)\n\n```\n\nBy abstracting over the loop in such a way, we have eliminated the need for additional inbetween functions to perform well know programming constructs, IE, loops, and made it much less likely that the programmer will encounter off by one logic errors.  HOF\u0027s used in such a way are so common and powerful in functional programming, that there are a multitude of such implementations in most functional languages standard libraries, which leads to even more conciseness when defining an operation like the above.  In fact, we have in the above sections, gradually worked our way towards a naive implementation for what is know as the `map` function in functional programming.  Our example above could just as easily be refactored to: \n\n```scala\n\n  var names \u003d List(\"liam\", \"david\", \"sam\", \"jerry\")\n\n  names \u003d names.map((elem: String) \u003d\u003e elem.toUpperCase)\n  println(names)\n\n  names \u003d names.map((elem: String) \u003d\u003e \"MR. \" + elem)\n  println(names)\n\n```\n\nor using type inference ... \n \n```scala\n\n  var names \u003d List(\"liam\", \"david\", \"sam\", \"jerry\")\n\n  names \u003d names map {_ toUpperCase}\n  println(names)\n\n  names \u003d names map {\"MR. \" + _}\n  println(names)\n\n```\n\n##### Abstracting Over Process\n\nThinking about the uses and applications for Higher Order Functions in functional settings, benefits from a change in thinking in the programming regarding what exactly we have the possibility of abstracting over in our programs.  When we think in imperative terms, we usually think about abstraction over the data which we passing in to our functions, along with a fix set of instructions.  With HOF’s we can also think about abstracting over a subset of the processing which we will carry out on the parameter data also.  In other words, we can compose functions by stating where we would like behaviours to take place, along with the arguments which will apply to those behaviours, and inject that behaviour at function invokation time.\n",
+      "dateUpdated": "Feb 3, 2017 10:41:38 AM",
+      "config": {
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12.0,
+        "editorHide": true,
+        "enabled": true,
+        "graph": {
+          "mode": "table",
+          "height": 501.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1486118498856_1540982593",
+      "id": "20170131-234841_485136247",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eImperative vs Functional Sequence Loop\u003c/h3\u003e\n\u003ch5\u003eThe Imperative Approach\u003c/h5\u003e\n\u003cp\u003eLooping over collections of objects or primative types occurs everywhere in imperative programming.  Every imperative programmer will be familiar with \u003ccode\u003efor\u003c/code\u003e loops in particular.  Consider the follow snippet in Java:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"java\"\u003epublic static ArrayList\u0026lt;String\u0026gt; convertToUpperCase(ArrayList\u0026lt;String\u0026gt; theList) {\n\n    for(int i \u003d 0; i \u0026lt; theList.size(); i++) {\n        theList.set(i, theList.get(i).toUpperCase());\n    }\n\n    return theList;\n}\n\npublic static void main(String[] args) {    \n\n    ArrayList\u0026lt;String\u0026gt; names \u003d new ArrayList\u0026lt;\u0026gt;();\n    names.add(\"liam\");\n    names.add(\"david\");\n    names.add(\"sam\");\n    names.add(\"jerry\");\n    convertToUpperCase(names);\n    System.out.print(names);  // Prints [LIAM, DAVID, SAM, JERRY]\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIn the typically imperative style, the programmer outlines exactly how the execution of the program will proceed.  It is an abstraction over the machine, which provides an easier and higher level way of using register counters and boolean tests to loop over a sequence.  \u003cem\u003eInitialise an \u003ccode\u003eint\u003c/code\u003e counter named \u003ccode\u003ei\u003c/code\u003e, test to see if \u003ccode\u003ei\u003c/code\u003e is less than the size of our sequence, if it is, progress, if not halt.  During the loop, perform some operation and finish the loop body by \u003ccode\u003eincrementing\u003c/code\u003e the loop counter.\u003c/em\u003e\u003c/p\u003e\n\u003cp\u003eSome time passes, and we now realise that we wish to add a title to each of the names in our collection:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"java\"\u003epublic static ArrayList\u0026lt;String\u0026gt; prependTitle(ArrayList\u0026lt;String\u0026gt; theList) {\n\n    for(int i \u003d 0; i \u0026lt; theList.size(); i++) {\n        theList.set(i, \"MR. \" + theList.get(i));\n    }\n\n    return theList;\n}\n\npublic static ArrayList\u0026lt;String\u0026gt; convertToUpperCase(ArrayList\u0026lt;String\u0026gt; theList) {\n\n    for(int i \u003d 0; i \u0026lt; theList.size(); i++) {\n        theList.set(i, theList.get(i).toUpperCase());\n    }\n\n    return theList;\n}\n\npublic static void main(String[] args) {    \n\n    ArrayList\u0026lt;String\u0026gt; names \u003d new ArrayList\u0026lt;\u0026gt;();\n    names.add(\"liam\");\n    names.add(\"david\");\n    names.add(\"sam\");\n    names.add(\"jerry\");\n    convertToUpperCase(names);\n    prependTitle(names);\n    System.out.print(names);  // Prints [MR. LIAM, MR. DAVID, MR. SAM, MR. JERRY]\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWe have introduced an additional function named \u003ccode\u003eprependTitle\u003c/code\u003e, which performs another operation on our list before returning.  The similarities in form between the two functions should be readily visible in this simplified form.  However, we are forced to implement the same loop two in order to before these two operations to our ArrayList of Strings.  This not only leads to a greater amount of code, but also introduces more chance for logic errors, and index out of bounds exceptions.  Index out of bounds exceptions could of course be eliminated via a more advanced foreach loop on this particular collection, however we are still faced with the duplicated logic of the extremely common task of \u003cstrong\u003elooping over each item in a collection once, and applying some operation to the data at the position\u003c/strong\u003e\u003c/p\u003e\n\u003ch5\u003eEliminating Code Duplication, and Providing a Higher Level of Abstraction via HOFs\u003c/h5\u003e\n\u003cp\u003eAs an example of how the above Java can be expressed in a more abstract way using what we know already about Higher Order Functions, and Functions as first class citizens.\u003c/p\u003e\n\u003cp\u003eWe will proceed from our existing implementation converted to Scala:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"scala\"\u003e/**\n    * Scala has no concept of a for loop, though we implement\n    * the same using a while.\n    * Scala additionally does not allow the passing of mutable/changeable\n    * references in to functions, for reasons which will be described\n    * much later.\n    */\n\n  val prependTitle \u003d (theList: List[String]) \u003d\u0026gt; {\n    var alteredList: List[String] \u003d List()\n    var i \u003d 0\n    while (i \u0026lt; theList.size) {\n      alteredList \u003d (\"MR. \" + theList(i)) :: alteredList\n      i \u003d i + 1\n    }\n    alteredList\n  }\n\n  val convertToUpperCase \u003d (theList: List[String]) \u003d\u0026gt; {\n    var alteredList: List[String] \u003d List()\n    var i \u003d 0\n    while (i \u0026lt; theList.size) {\n      alteredList \u003d theList(i).toUpperCase :: alteredList\n      i \u003d i + 1\n    }\n    alteredList\n  }\n\n  var names \u003d List(\"liam\", \"david\", \"sam\", \"jerry\")\n  names \u003d convertToUpperCase(names)\n  println(names) // Prints: List(JERRY, SAM, DAVID, LIAM)\n\n  names \u003d prependTitle(names)\n  println(names) // Prints: List(MR. LIAM, MR. DAVID, MR. SAM, MR. JERRY)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eTo take advantage of HOF\u0027s to solve our code duplication issue, we should first factor out what is common between the functions \u003ccode\u003eprependTitle\u003c/code\u003e, and \u003ccode\u003econvertToUppercase\u003c/code\u003e.  The code which we are seeking to abstract over, can be summed up as follows:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eperformActionToList(theList, performSomeActionToElement):\n    i \u003d 0\n    while i \u0026lt; theList:\n        theList \u003d theList.updated(i, `performSomeActionToElement(theList(i))`)\n        i \u003d i + 1\n    return theList\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eWe can see from the above sample, that \u003ccode\u003eperformSomeActionToElement(theList(i))\u003c/code\u003e, is a prime condidate for abstracting a loop via HOF\u0027s.  In this case, our \u003ccode\u003eperformSomeActionToElement(theList(i))\u003c/code\u003e type, is a function which takes some element of type T, and returns a T as its result.  For a more concrete example in Scala,\n\u003cbr  /\u003ewe will now factor out our loop:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"scala\"\u003e// Our new factored out looping construct\n\n  val performActionToList \u003d (theList: List[String], performSomeActionToElement: (String) \u003d\u0026gt; String) \u003d\u0026gt; {\n    var alteredList: List[String] \u003d List()\n    var i \u003d 0\n    while (i \u0026lt; theList.size) {\n      alteredList \u003d performSomeActionToElement(theList(i)) :: alteredList\n      i \u003d i + 1\n    }\n    alteredList\n  }\n\n  // Our new restructured operations on our collection\n  val convertToUpperCase  \u003d (theList: List[String]) \u003d\u0026gt; performActionToList(theList, (elem: String) \u003d\u0026gt; elem.toUpperCase)\n  val prependTitle        \u003d (theList: List[String]) \u003d\u0026gt; performActionToList(theList, (elem: String) \u003d\u0026gt; \"MR. \" + elem)\n\n  var names \u003d List(\"liam\", \"david\", \"sam\", \"jerry\")\n  names \u003d convertToUpperCase(names)\n  println(names) // Prints:  List(JERRY, SAM, DAVID, LIAM)\n\n  names \u003d prependTitle(names)\n  println(names) // Prints:  List(MR. LIAM, MR. DAVID, MR. SAM, MR. JERRY)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe same effect has now been acheived, and our code, is much shorter, with fewer loops.  However, upon inspection, there are further oppurtunities for conciseness given that the functions \u003ccode\u003econvertToUpperCase\u003c/code\u003e and \u003ccode\u003eprependTitle\u003c/code\u003e, are meerly inbetween functions to define an anonymous function which takes a String and returns a String to pass on to \u003ccode\u003eperformActionToList\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eConsider the following:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"scala\"\u003e    val performActionToList \u003d (theList: List[String], performSomeActionToElement: (String) \u003d\u0026gt; String) \u003d\u0026gt; {\n        var alteredList: List[String] \u003d List()\n        var i \u003d 0\n        while (i \u0026lt; theList.size) {\n            alteredList \u003d performSomeActionToElement(theList(i)) :: alteredList\n            i \u003d i + 1\n        }\n        alteredList\n    }\n\n    var names \u003d List(\"liam\", \"david\", \"sam\", \"jerry\")\n\n    // We now define the operation we would like applied to each element of the list inline via anonymous functions\n    names \u003d performActionToList(names, (elem: String) \u003d\u0026gt; elem.toUpperCase)\n    println(names) // Prints:  List(JERRY, SAM, DAVID, LIAM)\n\n    names \u003d performActionToList(names, (elem: String) \u003d\u0026gt; \"MR. \" + elem)\n    println(names) // Prints:  List(MR. LIAM, MR. DAVID, MR. SAM, MR. JERRY)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eBy abstracting over the loop in such a way, we have eliminated the need for additional inbetween functions to perform well know programming constructs, IE, loops, and made it much less likely that the programmer will encounter off by one logic errors.  HOF\u0027s used in such a way are so common and powerful in functional programming, that there are a multitude of such implementations in most functional languages standard libraries, which leads to even more conciseness when defining an operation like the above.  In fact, we have in the above sections, gradually worked our way towards a naive implementation for what is know as the \u003ccode\u003emap\u003c/code\u003e function in functional programming.  Our example above could just as easily be refactored to:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"scala\"\u003e  var names \u003d List(\"liam\", \"david\", \"sam\", \"jerry\")\n\n  names \u003d names.map((elem: String) \u003d\u0026gt; elem.toUpperCase)\n  println(names)\n\n  names \u003d names.map((elem: String) \u003d\u0026gt; \"MR. \" + elem)\n  println(names)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eor using type inference \u0026hellip;\u003c/p\u003e\n\u003cpre\u003e\u003ccode class\u003d\"scala\"\u003e  var names \u003d List(\"liam\", \"david\", \"sam\", \"jerry\")\n\n  names \u003d names map {_ toUpperCase}\n  println(names)\n\n  names \u003d names map {\"MR. \" + _}\n  println(names)\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch5\u003eAbstracting Over Process\u003c/h5\u003e\n\u003cp\u003eThinking about the uses and applications for Higher Order Functions in functional settings, benefits from a change in thinking in the programming regarding what exactly we have the possibility of abstracting over in our programs.  When we think in imperative terms, we usually think about abstraction over the data which we passing in to our functions, along with a fix set of instructions.  With HOF’s we can also think about abstracting over a subset of the processing which we will carry out on the parameter data also.  In other words, we can compose functions by stating where we would like behaviours to take place, along with the arguments which will apply to those behaviours, and inject that behaviour at function invokation time.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Feb 3, 2017 10:41:38 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n### A Word on Performance\n\nOne frequent concern with the functional approach, is that is far less efficient than a comparable imperative approach.  To this end, a benchmark will now be run in scala, on the performance implication of using an imperative loop vs a functional map.",
+      "dateUpdated": "Feb 3, 2017 10:41:38 AM",
+      "config": {
+        "tableHide": false,
+        "editorMode": "ace/mode/markdown",
+        "colWidth": 12.0,
+        "editorHide": true,
+        "enabled": true,
+        "graph": {
+          "mode": "table",
+          "height": 86.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1486118498857_1540597844",
+      "id": "20170131-234856_806172032",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003ch3\u003eA Word on Performance\u003c/h3\u003e\n\u003cp\u003eOne frequent concern with the functional approach, is that is far less efficient than a comparable imperative approach.  To this end, a benchmark will now be run in scala, on the performance implication of using an imperative loop vs a functional map.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Feb 3, 2017 10:41:38 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n\nbenchmark (1000 times) {\n    \n    val listOfNumbersFun \u003d {(1 to 100000) toVector}\n    \n    listOfNumbersFun map { \n        number \u003d\u003e {\n            val plusOne \u003d number + 1\n            plusOne * plusOne\n        }\n    }\n}",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 12:21:32 PM",
+      "config": {
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "graph": {
+          "mode": "table",
+          "height": 86.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1486118498857_1540597844",
+      "id": "20170201-144325_1466454327",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "\nwarning: there were two feature warnings; re-run with -feature for details\nAverage time: 4ms\n"
+      },
+      "dateCreated": "Feb 3, 2017 10:41:38 AM",
+      "dateStarted": "Feb 3, 2017 12:21:32 PM",
+      "dateFinished": "Feb 3, 2017 12:21:37 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n\nbenchmark (1000 times) {\n    var listOfNumbersImp \u003d {(1 to 100000) toVector}\n    var i \u003d 0\n    while(i \u003c listOfNumbersImp.size){\n        var plusOne \u003d listOfNumbersImp(i) + 1\n        listOfNumbersImp \u003d listOfNumbersImp.updated(i, plusOne * plusOne)\n        i \u003d i + 1\n    }\n    listOfNumbersImp\n}\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 3, 2017 10:42:31 AM",
+      "config": {
+        "tableHide": false,
+        "colWidth": 6.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "graph": {
+          "mode": "table",
+          "height": 86.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1486118498857_1540597844",
+      "id": "20170201-162055_451594415",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "\nwarning: there were two feature warnings; re-run with -feature for details\nAverage time: 7ms\n"
+      },
+      "dateCreated": "Feb 3, 2017 10:41:38 AM",
+      "dateStarted": "Feb 3, 2017 10:42:31 AM",
+      "dateFinished": "Feb 3, 2017 10:42:40 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\nWhat is hopefully evident from the above, is that at least in Scala, the functional approach should not be avoided for performance reasons.  As with any Software System, optimizing when needed should be preferred over designing every piece of code to operate with the utmost performance requirements.",
+      "dateUpdated": "Feb 3, 2017 10:41:38 AM",
+      "config": {
+        "tableHide": false,
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1486118498858_1541752091",
+      "id": "20170201-175625_1588781307",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cp\u003eWhat is hopefully evident from the above, is that at least in Scala, the functional approach should not be avoided for performance reasons.  As with any Software System, optimizing when needed should be preferred over designing every piece of code to operate with the utmost performance requirements.\u003c/p\u003e\n"
+      },
+      "dateCreated": "Feb 3, 2017 10:41:38 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n\nimplicit class unary_times(num: Int) {\n    def times \u003d num\n    def time  \u003d num\n}\n\ndef benchmark(numTimes: Int)(execute: \u003d\u003e Unit) \u003d {\n\n    val averageTime \u003d (1 to numTimes).map(_ \u003d\u003e {\n            val t0 \u003d System.currentTimeMillis()\n            execute\n            val t1 \u003d System.currentTimeMillis()\n            t1 - t0\n        }\n    )./:(0l)(_+_)/numTimes\n\n    println(\"Average time: \" + (averageTime) + \"ms\")\n}",
+      "dateUpdated": "Feb 3, 2017 10:41:38 AM",
+      "config": {
+        "tableHide": true,
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1486118498858_1541752091",
+      "id": "20170201-174023_1737089184",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "\ndefined class unary_times\n\nbenchmark: (numTimes: Int)(execute: \u003d\u003e Unit)Unit\n"
+      },
+      "dateCreated": "Feb 3, 2017 10:41:38 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "",
+      "dateUpdated": "Feb 3, 2017 10:41:38 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1486118498859_1541367342",
+      "id": "20170201-175546_248826486",
+      "dateCreated": "Feb 3, 2017 10:41:38 AM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Liam/fdsfdsfds",
+  "id": "2CAPWC1TW",
+  "angularObjects": {
+    "2CA9WM29S:shared_process": [],
+    "2C8YE84SE:shared_process": [],
+    "2C7DTJ6B4:shared_process": [],
+    "2C99X19WM:shared_process": [],
+    "2CAU2P4DN:shared_process": [],
+    "2C8F7RDT4:shared_process": [],
+    "2C79FGWKF:shared_process": [],
+    "2CANTY4TM:shared_process": [
+      {
+        "name": "cc",
+        "object": 4.0,
+        "noteId": "2CAPWC1TW"
+      }
+    ],
+    "2C7FYG9R4:shared_process": []
+  },
+  "config": {
+    "looknfeel": "default"
+  },
+  "info": {}
+}

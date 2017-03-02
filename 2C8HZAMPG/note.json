@@ -1,0 +1,72 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\n\n# Monads\nModelling with pure functions\nwrapping a function in a type\ntransforming parts into other parts\ncombining two parts into one\nchaining-composing\ncombining any-number of parts\n\n\n\n\n\n\nMonads are a functional programming technique employed to allow the composition of functions that do not have compatible types.\nThe composition is achieved by finding an appropriate binding mechanism which can unwrap the result of the first function into the type of input of the second function.\nSo if there is a function a -\u003e E(b) and a second function b -\u003e E(c) then a monad is needed to unwrap E(b) to use its b type in the second transformation.\nThis allows the chaining of the transformations to make a -\u003e E(b) -\u003e E(c) -\u003eE(d) -\u003e E(e)\nThe \n\n\n\nMonads provide a convenient framework for simulating effects found in other languages, such as global state, exception handling, output, or non-determinism. Pure functional programming is based on the lambda calculus, the lambda calculus does does not allow for side-effects in a program. This means that having print statements, assignments, continuations or even exceptions can effect the correctness of a program.\nIf this was the end of the matter then functional programming would have no use, it would be completely useless technology.\nMonads are the way that functional methods are transformed into useful techniques.\n\n### Monads in functional programming\nAn expression in the form  m * λa.n\nwhere m is a computation\nbind a to the result\nm has the type M a\na is of type a\nexpression λa.n is of type a -\u003e M b\nthen the whole expression has the value a -\u003e M b\n\n\n### What are Monads\n### Monoids\n1. Named by variables\n2. Passed as arguments to functions\n3. Returned as results from functions\n4. Can be included in Data-Structures\n\n### Demonstrations of the above properties\n\n\u003cbr\u003e\n##### 1. Named/referenced by variable",
+      "user": "anonymous",
+      "dateUpdated": "Feb 16, 2017 11:19:50 AM",
+      "config": {
+        "colWidth": 8.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1487239472139_1581891952",
+      "id": "20170216-100432_1391617945",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eMonads\u003c/h1\u003e\n\u003cp\u003eMonads are a technique employed to allow the introduction of effects in compositions of functional lambda for composing functions on a set to transform the \u003c/p\u003e\n\u003cp\u003eMonads provide a convenient framework for simulating effects found in other languages, such as global state, exception handling, output, or non-determinism. Pure functional programming is based on the lambda calculus, the lambda calculus does does not allow for side-effects in a program. This means that having print statements, assignments, continuations or even exceptions can effect the correctness of a program.\u003cbr/\u003eIf this was the end of the matter then functional programming would have no use, it would be completely useless technology.\u003cbr/\u003eMonads are the way that functional methods are transformed into useful techniques.\u003c/p\u003e\n\u003ch3\u003eMonads in functional programming\u003c/h3\u003e\n\u003ch3\u003eWhat are Monads\u003c/h3\u003e\n\u003ch3\u003eMonoids\u003c/h3\u003e\n\u003col\u003e\n  \u003cli\u003eNamed by variables\u003c/li\u003e\n  \u003cli\u003ePassed as arguments to functions\u003c/li\u003e\n  \u003cli\u003eReturned as results from functions\u003c/li\u003e\n  \u003cli\u003eCan be included in Data-Structures\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch3\u003eDemonstrations of the above properties\u003c/h3\u003e\n\u003cbr\u003e\n\u003ch5\u003e1. Named/referenced by variable\u003c/h5\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 16, 2017 10:04:32 AM",
+      "dateStarted": "Feb 16, 2017 10:23:51 AM",
+      "dateFinished": "Feb 16, 2017 10:23:51 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n",
+      "dateUpdated": "Feb 16, 2017 10:05:32 AM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1487239532125_454085656",
+      "id": "20170216-100532_82039147",
+      "dateCreated": "Feb 16, 2017 10:05:32 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "David/Monads",
+  "id": "2C8HZAMPG",
+  "angularObjects": {
+    "2C7EWGKXN:shared_process": [],
+    "2CAGPJ93Y:shared_process": [],
+    "2C8HKHF53:shared_process": [],
+    "2C9X1SS4K:shared_process": [],
+    "2C7C4ENCY:shared_process": [],
+    "2C7KTHZNU:shared_process": [],
+    "2C7RVPZ3W:shared_process": [],
+    "2C9BA4F3E:shared_process": [],
+    "2CAGV9SKG:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

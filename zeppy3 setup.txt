@@ -1,0 +1,24 @@
+Created a repo folder in the google drive shared folder called
+ CompSciProject/share      which is to keep our zeppelins synced.  
+
+to download the image and run it as a container enter the following
+
+docker run -itd -p 8080:8080 -v (replace with your local google share reference):/usr/zeppelin/Notebook deezb/zeppy3
+
+this will download and create the container and share the folders and ports
+then you need to run "docker ps" and take the first 4 digits of the container id
+
+docker exec -it (first4 digits) /bin/bash
+to get into the linux bash shell, 
+
+./bin/zeppelin-daemon.sh start
+gets the zeppelin server up and running.
+
+in a web browser goto localhost:8080
+
+If you have notebooks in other zepps, open the notebook in your zepp, click on export and save the json, then goto the main page of this zepp and import the json
+
+
+
+
+
