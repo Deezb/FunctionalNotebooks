@@ -1,9 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%md\n\n# Monads\nModelling with pure functions\nwrapping a function in a type\ntransforming parts into other parts\ncombining two parts into one\nchaining-composing\ncombining any-number of parts\n\n\n\n\n\n\nMonads are a functional programming technique employed to allow the composition of functions that do not have compatible types.\nThe composition is achieved by finding an appropriate binding mechanism which can unwrap the result of the first function into the type of input of the second function.\nSo if there is a function a -\u003e E(b) and a second function b -\u003e E(c) then a monad is needed to unwrap E(b) to use its b type in the second transformation.\nThis allows the chaining of the transformations to make a -\u003e E(b) -\u003e E(c) -\u003eE(d) -\u003e E(e)\nThe \n\n\n\nMonads provide a convenient framework for simulating effects found in other languages, such as global state, exception handling, output, or non-determinism. Pure functional programming is based on the lambda calculus, the lambda calculus does does not allow for side-effects in a program. This means that having print statements, assignments, continuations or even exceptions can effect the correctness of a program.\nIf this was the end of the matter then functional programming would have no use, it would be completely useless technology.\nMonads are the way that functional methods are transformed into useful techniques.\n\n### Monads in functional programming\nAn expression in the form  m * λa.n\nwhere m is a computation\nbind a to the result\nm has the type M a\na is of type a\nexpression λa.n is of type a -\u003e M b\nthen the whole expression has the value a -\u003e M b\n\n\n### What are Monads\n### Monoids\n1. Named by variables\n2. Passed as arguments to functions\n3. Returned as results from functions\n4. Can be included in Data-Structures\n\n### Demonstrations of the above properties\n\n\u003cbr\u003e\n##### 1. Named/referenced by variable",
+      "text": "%md\n\n# Monads\n\nThe reason Monads are used is to isolate side-effects from the functional calculations, thus ensuring the pure functionality of the program while explicitly handling side-effects like IO or Options. The way that this contract is achieved is by implementing a bind and return combination of transformations.\n\n\nMonads are a functional programming technique which allows the composition of functions that do not have compatible types. \n\nThe composition is achieved by finding an appropriate binding mechanism which can unwrap the result of the first function into the type of input of the second function.\n\nMonads provide a convenient framework for simulating effects found in other languages, such as global state, exception handling, output, or non-determinism. Pure functional programming is based on the lambda calculus, the lambda calculus does does not allow for side-effects in a program. If this was the end of the matter then functional programming would have no practical use, Monads allow side-effects to be described without breaking the referential transparency rules.\nMonads are the way that functional methods are transformed into useful techniques.\n\n### Monads in functional programming\nAn expression in the form  m * λa.n\nwhere m is a computation\nbind a to the result\nm has the type M a\na is of type a\nexpression λa.n is of type a -\u003e M b\nthen the whole expression has the value a -\u003e M b\n\n\n### What are Monads\n\n### Monoids\n",
       "user": "anonymous",
-      "dateUpdated": "Feb 16, 2017 11:19:50 AM",
+      "dateUpdated": "Mar 3, 2017 2:33:37 AM",
       "config": {
         "colWidth": 8.0,
         "graph": {
@@ -30,18 +30,363 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eMonads\u003c/h1\u003e\n\u003cp\u003eMonads are a technique employed to allow the introduction of effects in compositions of functional lambda for composing functions on a set to transform the \u003c/p\u003e\n\u003cp\u003eMonads provide a convenient framework for simulating effects found in other languages, such as global state, exception handling, output, or non-determinism. Pure functional programming is based on the lambda calculus, the lambda calculus does does not allow for side-effects in a program. This means that having print statements, assignments, continuations or even exceptions can effect the correctness of a program.\u003cbr/\u003eIf this was the end of the matter then functional programming would have no use, it would be completely useless technology.\u003cbr/\u003eMonads are the way that functional methods are transformed into useful techniques.\u003c/p\u003e\n\u003ch3\u003eMonads in functional programming\u003c/h3\u003e\n\u003ch3\u003eWhat are Monads\u003c/h3\u003e\n\u003ch3\u003eMonoids\u003c/h3\u003e\n\u003col\u003e\n  \u003cli\u003eNamed by variables\u003c/li\u003e\n  \u003cli\u003ePassed as arguments to functions\u003c/li\u003e\n  \u003cli\u003eReturned as results from functions\u003c/li\u003e\n  \u003cli\u003eCan be included in Data-Structures\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch3\u003eDemonstrations of the above properties\u003c/h3\u003e\n\u003cbr\u003e\n\u003ch5\u003e1. Named/referenced by variable\u003c/h5\u003e\n\u003c/div\u003e"
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eMonads\u003c/h1\u003e\n\u003cp\u003eThe reason Monads are used is to isolate side-effects from the functional calculations, thus ensuring the pure functionality of the program while allowing side-effects to be carried out. The way that this contract is achieved is by implementing a bind and return combination of transformations.\u003c/p\u003e\n\u003cp\u003eMonads are a functional programming technique which allows the composition of functions that do not have compatible types. \u003c/p\u003e\n\u003cp\u003eThe composition is achieved by finding an appropriate binding mechanism which can unwrap the result of the first function into the type of input of the second function.\u003c/p\u003e\n\u003cp\u003eMonads provide a convenient framework for simulating effects found in other languages, such as global state, exception handling, output, or non-determinism. Pure functional programming is based on the lambda calculus, the lambda calculus does does not allow for side-effects in a program. If this was the end of the matter then functional programming would have no practical use, Monads allow side-effects to be described without breaking the referential transparency rules.\u003cbr/\u003eMonads are the way that functional methods are transformed into useful techniques.\u003c/p\u003e\n\u003ch3\u003eMonads in functional programming\u003c/h3\u003e\n\u003cp\u003eAn expression in the form m * λa.n\u003cbr/\u003ewhere m is a computation\u003cbr/\u003ebind a to the result\u003cbr/\u003em has the type M a\u003cbr/\u003ea is of type a\u003cbr/\u003eexpression λa.n is of type a -\u0026gt; M b\u003cbr/\u003ethen the whole expression has the value a -\u0026gt; M b\u003c/p\u003e\n\u003ch3\u003eWhat are Monads\u003c/h3\u003e\n\u003ch3\u003eMonoids\u003c/h3\u003e\n\u003c/div\u003e"
       },
       "dateCreated": "Feb 16, 2017 10:04:32 AM",
-      "dateStarted": "Feb 16, 2017 10:23:51 AM",
-      "dateFinished": "Feb 16, 2017 10:23:51 AM",
+      "dateStarted": "Feb 27, 2017 6:38:20 PM",
+      "dateFinished": "Feb 27, 2017 6:38:20 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%md\n",
-      "dateUpdated": "Feb 16, 2017 10:05:32 AM",
-      "config": {},
+      "text": "%md\n### Definitions\n\nThe term E \\\u003cb\\\u003e refers to a value of type b which is wrapped in a generic type structure E. \ne.g. \nif b represents an int, \nand E represents a List \nE \\\u003cb\\\u003e \u003d List\\\u003cint\\\u003e\n\nElevated terms refer to transforming functions that need to be transformed so that they can be composed into a larger lazily evaluated function.\n\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 3, 2017 2:32:12 AM",
+      "config": {
+        "colWidth": 4.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "tableHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488127935434_1687800128",
+      "id": "20170226-165215_854217712",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch3\u003eDefinitions\u003c/h3\u003e\n\u003cp\u003eThe term E \u0026lt;b\u0026gt; refers to a value of type b which is wrapped in a generic type structure E.\u003cbr/\u003ee.g.\u003cbr/\u003eif b represents an int,\u003cbr/\u003eand E represents a List\u003cbr/\u003eE \u0026lt;b\u0026gt; \u003d List\u0026lt;int\u0026gt;\u003c/p\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 26, 2017 4:52:15 PM",
+      "dateStarted": "Mar 3, 2017 2:30:14 AM",
+      "dateFinished": "Mar 3, 2017 2:30:14 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n# Monoid Demonstration\n### A Monoid is a three layered structure.\n1. it is a collection of things \n2. it has a rule\n3. the rule must obey certain other rules \n3.a Associativity\n3.b An Identity Element I where for each element A, A+I \u003d I+A \u003d A\n\n### Monoid Example \n#### the hours on a clock can be seen as a monoid, \n#### the rule is an add function where a time \u0027A\u0027 and a duration \u0027B\u0027 can be used in the add function to give a new Time (A + B) mod 12,\n#### The rules for the rule are it must be associative (A+B)+C \u003d A+(B+C) and\n#### it must also have an identity element ( the identity element is 12,  A+12 \u003d A, 12+A \u003d A )\n\n\n\n\"A monoid is a set that is closed under an associative binary operation and has an identity element I in S such that for all a in S, Ia\u003daI\u003da.\"\nWeisstein, Eric W. \"Monoid.\" From MathWorld--A Wolfram Web Resource. http://mathworld.wolfram.com/Monoid.html\n\nMonoids can be \n\n### This example based on https://www.stephanboyer.com/post/9/monads-part-1-a-design-pattern\n### demonstrates a simple monoid, using a bind function to handle invalid inputs to the sqrt and div100 functions\n### Monads are related to Monoids, but they need to be converted to a monoidal shape first\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 27, 2017 6:38:20 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488139131596_95924921",
+      "id": "20170226-195851_1277262110",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eMonoid Demonstration\u003c/h1\u003e\n\u003ch3\u003eA Monoid is a three layered structure.\u003c/h3\u003e\n\u003col\u003e\n  \u003cli\u003eit is a collection of things\u003c/li\u003e\n  \u003cli\u003eit has a rule\u003c/li\u003e\n  \u003cli\u003ethe rule must obey certain other rules\u003cbr/\u003e3.a Associativity\u003cbr/\u003e3.b An Identity Element I where for each element A, A+I \u003d I+A \u003d A\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch3\u003eMonoid Example\u003c/h3\u003e\n\u003ch4\u003ethe hours on a clock can be seen as a monoid,\u003c/h4\u003e\n\u003ch4\u003ethe rule is an add function where a time \u0026lsquo;A\u0026rsquo; and a duration \u0026lsquo;B\u0026rsquo; can be used in the add function to give a new Time (A + B) mod 12,\u003c/h4\u003e\n\u003ch4\u003eThe rules for the rule are it must be associative (A+B)+C \u003d A+(B+C) and\u003c/h4\u003e\n\u003ch4\u003eit must also have an identity element ( the identity element is 12, A+12 \u003d A, 12+A \u003d A )\u003c/h4\u003e\n\u003cp\u003e\u0026ldquo;A monoid is a set that is closed under an associative binary operation and has an identity element I in S such that for all a in S, Ia\u003daI\u003da.\u0026rdquo;\u003cbr/\u003eWeisstein, Eric W. \u0026ldquo;Monoid.\u0026rdquo; From MathWorld\u0026ndash;A Wolfram Web Resource. \u003ca href\u003d\"http://mathworld.wolfram.com/Monoid.html\"\u003ehttp://mathworld.wolfram.com/Monoid.html\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eMonoids can be \u003c/p\u003e\n\u003ch3\u003eThis example based on \u003ca href\u003d\"https://www.stephanboyer.com/post/9/monads-part-1-a-design-pattern\"\u003ehttps://www.stephanboyer.com/post/9/monads-part-1-a-design-pattern\u003c/a\u003e\u003c/h3\u003e\n\u003ch3\u003edemonstrates a simple monoid, using a bind function to handle invalid inputs to the sqrt and div100 functions\u003c/h3\u003e\n\u003ch3\u003eMonads are related to Monoids, but they need to be converted to a monoidal shape first\u003c/h3\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 26, 2017 7:58:51 PM",
+      "dateStarted": "Feb 27, 2017 6:38:20 PM",
+      "dateFinished": "Feb 27, 2017 6:38:20 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n#function to return a simple square root, else None for Negative Values\ndef sqrt(x):\n    if x \u003c 0:\n        return None\n    else:\n        return x ** 0.5\n        \n        \ndef div100(divisor):\n    if divisor \u003d\u003d 0:\n        return None\n    else:\n        return 100 / divisor\n\n\nprint(sqrt(-1))\nprint(div100(-4))\nprint(sqrt(div100(-4)))\n##oops didn\u0027t check for Nonetypes being sent in \nprint(div100(sqrt(div100(-4))))  # this one is supposed to break, to show the error handling didn\u0027t catch everything",
+      "user": "anonymous",
+      "dateUpdated": "Feb 27, 2017 6:38:20 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488135566072_-1481510741",
+      "id": "20170226-185926_256504984",
+      "result": {
+        "code": "ERROR",
+        "type": "TEXT",
+        "msg": "None\n-25.0\nNone\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-2961944246834633161.py\", line 335, in \u003cmodule\u003e\n    exec(code)\n  File \"\u003cstdin\u003e\", line 14, in \u003cmodule\u003e\n  File \"\u003cstdin\u003e\", line 10, in div100\nTypeError: unsupported operand type(s) for /: \u0027int\u0027 and \u0027NoneType\u0027\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-2961944246834633161.py\", line 342, in \u003cmodule\u003e\n    raise Exception(traceback.format_exc())\nException: Traceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-2961944246834633161.py\", line 335, in \u003cmodule\u003e\n    exec(code)\n  File \"\u003cstdin\u003e\", line 14, in \u003cmodule\u003e\n  File \"\u003cstdin\u003e\", line 10, in div100\nTypeError: unsupported operand type(s) for /: \u0027int\u0027 and \u0027NoneType\u0027\n\n"
+      },
+      "dateCreated": "Feb 26, 2017 6:59:26 PM",
+      "dateStarted": "Feb 27, 2017 6:38:20 PM",
+      "dateFinished": "Feb 27, 2017 6:38:20 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n# Monoid demonstration\n\n### Monoids are functions that can be composed\n#### In Python to chain functions and keep error checking the results a Monoid can be created using a simple bind function\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis is called the Option or Maybe Monad",
+      "user": "anonymous",
+      "dateUpdated": "Feb 27, 2017 6:38:21 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488135575088_-753935246",
+      "id": "20170226-185935_1978301750",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eMonoid demonstration\u003c/h1\u003e\n\u003ch3\u003eMonoids are functions that can be composed\u003c/h3\u003e\n\u003ch4\u003eIn Python to chain functions and keep error checking the results a Monoid can be created using a simple bind function\u003c/h4\u003e\n\u003cp\u003eThis is called the Option or Maybe Monad\u003c/p\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 26, 2017 6:59:35 PM",
+      "dateStarted": "Feb 27, 2017 6:38:21 PM",
+      "dateFinished": "Feb 27, 2017 6:38:21 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\ndef bind(x, f):\n    if x is None:\n        return None\n    else:\n        return f(x)\n\n\ndef fs(x):\n    return bind(bind(bind(bind(bind(x, sqrt), div100), sqrt), div100), sqrt)\nprint(fs(100))\nprint(fs(30))\nprint(fs(-10))",
+      "user": "anonymous",
+      "dateUpdated": "Feb 27, 2017 6:38:21 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488135804955_-1718194255",
+      "id": "20170226-190324_615244952",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "5.623413251903491\n4.837713632823584\nNone\n"
+      },
+      "dateCreated": "Feb 26, 2017 7:03:24 PM",
+      "dateStarted": "Feb 27, 2017 6:38:21 PM",
+      "dateFinished": "Feb 27, 2017 6:38:21 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 27, 2017 6:38:21 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488135865749_-587493859",
+      "id": "20170226-190425_1180882650",
+      "result": {
+        "code": "ERROR",
+        "type": "TEXT",
+        "msg": "Traceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-2961944246834633161.py\", line 324, in \u003cmodule\u003e\n    [code.body[-(nhooks + 1)]])\nIndexError: list index out of range\n"
+      },
+      "dateCreated": "Feb 26, 2017 7:04:25 PM",
+      "dateStarted": "Feb 27, 2017 6:38:21 PM",
+      "dateFinished": "Feb 27, 2017 6:38:21 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 27, 2017 6:38:21 PM",
+      "config": {
+        "colWidth": 5.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488135863582_582127473",
+      "id": "20170226-190423_1517684035",
+      "result": {
+        "code": "ERROR",
+        "type": "TEXT",
+        "msg": "Traceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-2961944246834633161.py\", line 324, in \u003cmodule\u003e\n    [code.body[-(nhooks + 1)]])\nIndexError: list index out of range\n"
+      },
+      "dateCreated": "Feb 26, 2017 7:04:23 PM",
+      "dateStarted": "Feb 27, 2017 6:38:21 PM",
+      "dateFinished": "Feb 27, 2017 6:38:21 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 27, 2017 6:38:21 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488136295301_2133828010",
+      "id": "20170226-191135_135245974",
+      "result": {
+        "code": "ERROR",
+        "type": "TEXT",
+        "msg": "Traceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-2961944246834633161.py\", line 324, in \u003cmodule\u003e\n    [code.body[-(nhooks + 1)]])\nIndexError: list index out of range\n"
+      },
+      "dateCreated": "Feb 26, 2017 7:11:35 PM",
+      "dateStarted": "Feb 27, 2017 6:38:21 PM",
+      "dateFinished": "Feb 27, 2017 6:38:21 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 27, 2017 6:38:21 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488135572897_-1203706711",
+      "id": "20170226-185932_1710803087",
+      "result": {
+        "code": "ERROR",
+        "type": "TEXT",
+        "msg": "Traceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-2961944246834633161.py\", line 324, in \u003cmodule\u003e\n    [code.body[-(nhooks + 1)]])\nIndexError: list index out of range\n"
+      },
+      "dateCreated": "Feb 26, 2017 6:59:32 PM",
+      "dateStarted": "Feb 27, 2017 6:38:21 PM",
+      "dateFinished": "Feb 27, 2017 6:38:21 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\ndef invert(numerators):\n    result \u003d []\n    for numerator in numerators:\n        if numerator \u003d\u003d 0:\n            # div by 0 errors averted here\n            pass\n        else:\n            result.append(1 / numerator)\n    return result",
+      "user": "anonymous",
+      "dateUpdated": "Feb 27, 2017 6:38:21 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
       "settings": {
         "params": {},
         "forms": {}
@@ -49,8 +394,267 @@
       "apps": [],
       "jobName": "paragraph_1487239532125_454085656",
       "id": "20170216-100532_82039147",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
       "dateCreated": "Feb 16, 2017 10:05:32 AM",
-      "status": "READY",
+      "dateStarted": "Feb 27, 2017 6:38:21 PM",
+      "dateFinished": "Feb 27, 2017 6:38:22 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\ndef root(numba):\n        if numba \u003c 0:\n            return [None]\n        elif numba \u003d\u003d 0:\n            return [0]\n        else:\n            return [numba**0.5, -numba**0.5]\n\ndef roots(numbers):\n    if isinstance(numbers, list):\n        result \u003d []\n        for number in numbers:\n            result.extend(root(number))\n    elif str(numbers).isnumeric():\n        result \u003d [root(numbers)]\n    return result",
+      "user": "anonymous",
+      "dateUpdated": "Feb 27, 2017 6:38:21 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488129833764_674853676",
+      "id": "20170226-172353_773601481",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
+      "dateCreated": "Feb 26, 2017 5:23:53 PM",
+      "dateStarted": "Feb 27, 2017 6:38:22 PM",
+      "dateFinished": "Feb 27, 2017 6:38:22 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\ndef sqrt(x):\n    if x \u003c 0:\n        return []\n    elif x \u003d\u003d 0:\n        return [0]\n    else:\n        return [x**0.5, -x**0.5]",
+      "user": "anonymous",
+      "dateUpdated": "Feb 27, 2017 6:38:22 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488133882185_-385739819",
+      "id": "20170226-183122_1972040679",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
+      "dateCreated": "Feb 26, 2017 6:31:22 PM",
+      "dateStarted": "Feb 27, 2017 6:38:22 PM",
+      "dateFinished": "Feb 27, 2017 6:38:22 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\ndef unwrap(value):\n    for valu in value:\n        yield valu\n        \ndef wrap(value):\n    return [value]\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 27, 2017 6:38:22 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488131200606_917161164",
+      "id": "20170226-174640_227372135",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
+      "dateCreated": "Feb 26, 2017 5:46:40 PM",
+      "dateStarted": "Feb 27, 2017 6:38:22 PM",
+      "dateFinished": "Feb 27, 2017 6:38:22 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\ndef bind(x, f): \n    print(\u0027x\u003d\u0027,x)\n    print(\u0027f\u003d\u0027,f)\n    return [j for i in x for j in f(i)]\n  \nx \u003d [1,2,3,4,5]\nbind(bind(bind(x, sqrt), sqrt), sqrt)",
+      "user": "anonymous",
+      "dateUpdated": "Feb 27, 2017 6:38:22 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488129867429_508688124",
+      "id": "20170226-172427_770239720",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "x\u003d [1, 2, 3, 4, 5]\nf\u003d \u003cfunction sqrt at 0x7fa994912ae8\u003e\nx\u003d [1.0, -1.0, 1.4142135623730951, -1.4142135623730951, 1.7320508075688772, -1.7320508075688772, 2.0, -2.0, 2.23606797749979, -2.23606797749979]\nf\u003d \u003cfunction sqrt at 0x7fa994912ae8\u003e\nx\u003d [1.0, -1.0, 1.189207115002721, -1.189207115002721, 1.3160740129524924, -1.3160740129524924, 1.4142135623730951, -1.4142135623730951, 1.4953487812212205, -1.4953487812212205]\nf\u003d \u003cfunction sqrt at 0x7fa994912ae8\u003e\n[1.0, -1.0, 1.0905077326652577, -1.0905077326652577, 1.147202690439877, -1.147202690439877, 1.189207115002721, -1.189207115002721, 1.2228445449938519, -1.2228445449938519]\n"
+      },
+      "dateCreated": "Feb 26, 2017 5:24:27 PM",
+      "dateStarted": "Feb 27, 2017 6:38:22 PM",
+      "dateFinished": "Feb 27, 2017 6:38:22 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nimport sys\nprint(sys.version)\n\nx \u003d 10\nbind(bind(bind(x, roots), invert), roots)",
+      "user": "anonymous",
+      "dateUpdated": "Feb 27, 2017 6:38:22 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488129925760_-1857658818",
+      "id": "20170226-172525_1952921637",
+      "result": {
+        "code": "ERROR",
+        "type": "TEXT",
+        "msg": "3.4.2 (default, Oct  8 2014, 10:45:20) \n[GCC 4.9.1]\nx\u003d 10\nf\u003d \u003cfunction roots at 0x7fa9949129d8\u003e\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-2961944246834633161.py\", line 335, in \u003cmodule\u003e\n    exec(code)\n  File \"\u003cstdin\u003e\", line 4, in \u003cmodule\u003e\n  File \"\u003cstdin\u003e\", line 4, in bind\nTypeError: \u0027int\u0027 object is not iterable\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-2961944246834633161.py\", line 342, in \u003cmodule\u003e\n    raise Exception(traceback.format_exc())\nException: Traceback (most recent call last):\n  File \"/tmp/zeppelin_pyspark-2961944246834633161.py\", line 335, in \u003cmodule\u003e\n    exec(code)\n  File \"\u003cstdin\u003e\", line 4, in \u003cmodule\u003e\n  File \"\u003cstdin\u003e\", line 4, in bind\nTypeError: \u0027int\u0027 object is not iterable\n\n"
+      },
+      "dateCreated": "Feb 26, 2017 5:25:25 PM",
+      "dateStarted": "Feb 27, 2017 6:38:22 PM",
+      "dateFinished": "Feb 27, 2017 6:38:22 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python \nbind(f)\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 27, 2017 6:38:22 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488130123016_621787332",
+      "id": "20170226-172843_424105967",
+      "result": {
+        "code": "ERROR",
+        "type": "TEXT",
+        "msg": "Traceback (most recent call last):\n  File \"\u003cstdin\u003e\", line 1, in \u003cmodule\u003e\nNameError: name \u0027bind\u0027 is not defined\n"
+      },
+      "dateCreated": "Feb 26, 2017 5:28:43 PM",
+      "dateStarted": "Feb 27, 2017 6:38:22 PM",
+      "dateFinished": "Feb 27, 2017 6:38:23 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 27, 2017 6:38:22 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488132410757_-626490818",
+      "id": "20170226-180650_2042364286",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
+      "dateCreated": "Feb 26, 2017 6:06:50 PM",
+      "dateStarted": "Feb 27, 2017 6:38:23 PM",
+      "dateFinished": "Feb 27, 2017 6:38:23 PM",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     }
   ],
@@ -67,6 +671,8 @@
     "2C9BA4F3E:shared_process": [],
     "2CAGV9SKG:shared_process": []
   },
-  "config": {},
+  "config": {
+    "looknfeel": "simple"
+  },
   "info": {}
 }

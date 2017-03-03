@@ -1,0 +1,47 @@
+{
+  "paragraphs": [
+    {
+      "text": "",
+      "dateUpdated": "Mar 3, 2017 10:28:11 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488536880907_1133812384",
+      "id": "20170303-102800_1974727476",
+      "dateCreated": "Mar 3, 2017 10:28:00 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Liam/Immutability",
+  "id": "2C9PUVGGJ",
+  "angularObjects": {
+    "2C7EWGKXN:shared_process": [],
+    "2CAGPJ93Y:shared_process": [],
+    "2C8HKHF53:shared_process": [],
+    "2C9X1SS4K:shared_process": [],
+    "2C7C4ENCY:shared_process": [],
+    "2C7KTHZNU:shared_process": [],
+    "2C7RVPZ3W:shared_process": [],
+    "2C9BA4F3E:shared_process": [],
+    "2CAGV9SKG:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

@@ -1,9 +1,85 @@
 {
   "paragraphs": [
     {
-      "text": "%python\nimport os\n[(i,i**2) for i in range(100)]\n",
+      "text": "%md\n\n# Toolbox of functional transforms\n\nThis notebook introduces the functional transforms,\nFunctional programming uses combinations of this small set of transforming techniques to perform most functions.\nThese transform\nThe Toolbox of transforms contains \n1. Map\n2. Return\n3. Apply\n4. Bind\n5. Map2\n\n#### there are more transforms like fold and traverse, but the 5 listed are the most important. \n\n#### Now lets examine what each of these transforms do for transforming values and functions within functional programming to make functional programming powerful.\n",
       "user": "anonymous",
-      "dateUpdated": "Feb 16, 2017 10:02:41 AM",
+      "dateUpdated": "Feb 24, 2017 7:13:35 PM",
+      "config": {
+        "colWidth": 7.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1487896068770_-329394060",
+      "id": "20170224-002748_876962113",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eToolbox of functional transforms\u003c/h1\u003e\n\u003cp\u003eThis notebook introduces the functional transforms,\u003cbr/\u003eFunctional programming uses combinations of this small set of transforming techniques to perform most functions.\u003cbr/\u003eThese transform\u003cbr/\u003eThe Toolbox of transforms contains\u003cbr/\u003e1. Map\u003cbr/\u003e2. Return\u003cbr/\u003e3. Apply\u003cbr/\u003e4. Bind\u003cbr/\u003e5. Map2\u003c/p\u003e\n\u003ch4\u003ethere are more transforms like fold and traverse, but the 5 listed are the most important.\u003c/h4\u003e\n\u003ch4\u003eNow lets examine what each of these transforms do for transforming values and functions within functional programming to make functional programming powerful.\u003c/h4\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 24, 2017 12:27:48 AM",
+      "dateStarted": "Feb 24, 2017 7:13:35 PM",
+      "dateFinished": "Feb 24, 2017 7:13:35 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\nLifting - \nthe terminology of this notebook uses lifting to refer to any type of object that works for generic types, they can lift a value or function from the lower level to the elevated level. Elevated level object are really wrapped functions.\n\non the elevated level are things like List\\\u003cint\u003e, List\\\u003cstring\u003e, List\\\u003cbool\u003e List\\\u003cfunction\u003e\n\n\n\non the lower level are the type, int, string, bool, function, 2 parameter function\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 24, 2017 12:50:39 AM",
+      "config": {
+        "colWidth": 5.0,
+        "graph": {
+          "mode": "table",
+          "height": 157.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "tableHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1487896731907_106308616",
+      "id": "20170224-003851_2036795982",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eLifting -\u003cbr/\u003ethe terminology of this notebook uses lifting to refer to any type of object that works for generic types, they can lift a value or function from the lower level to the elevated level. Elevated level object are really wrapped functions.\u003c/p\u003e\n\u003cp\u003eon the elevated level are things like List\u0026lt;int\u0026gt;, List\u0026lt;string\u0026gt;, List\u0026lt;bool\u0026gt; List\u0026lt;function\u0026gt;\u003c/p\u003e\n\u003cp\u003eon the lower level are the type, int, string, bool, function, 2 parameter function\u003c/p\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 24, 2017 12:38:51 AM",
+      "dateStarted": "Feb 24, 2017 12:45:16 AM",
+      "dateFinished": "Feb 24, 2017 12:45:16 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nimport time\n\ndef timeme(func_sent_in):\n    \"\"\"\n    Calculates run duration of a given function\n    \"\"\"\n    def inner_wrap(*args, **kwargs):\n        t1 \u003d time.time()\n        ret_in \u003d func_sent_in(*args, **kwargs)\n        t2 \u003d time.time()\n        func_name \u003d func_sent_in.__name__\n        time_taken \u003d str((t2 - t1))\n        return \"To run the function \u0027{0}\u0027, took {1} seconds.\\n\".format(func_name, time_taken), ret_in\n    return inner_wrap\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 24, 2017 1:51:37 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -16,7 +92,45 @@
           "scatter": {}
         },
         "enabled": true,
-        "editorMode": "ace/mode/text"
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1487899995907_-2083087246",
+      "id": "20170224-013315_157124845",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
+      "dateCreated": "Feb 24, 2017 1:33:15 AM",
+      "dateStarted": "Feb 24, 2017 1:51:37 AM",
+      "dateFinished": "Feb 24, 2017 1:51:37 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n\n## Map\n#### Map is a transform for lifting functions from what is termed the \"lower level\" of individual types to the \"elevated level\" of Lists of individaul types. This allows a function that takes a single parameter of type T to be applied to each element of a list of elements of type T.\n\n### Map is known as a \"lifting\" transform, and it is the lifting transform for functions.\n\n\nwhat this means is that Map allows working on a list of values without extracting those values from the list.",
+      "user": "anonymous",
+      "dateUpdated": "Feb 24, 2017 7:13:14 PM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "tableHide": true
       },
       "settings": {
         "params": {},
@@ -27,21 +141,97 @@
       "id": "20170201-213107_184137006",
       "result": {
         "code": "SUCCESS",
-        "type": "TEXT",
-        "msg": "[(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25), (6, 36), (7, 49), (8, 64), (9, 81), (10, 100), (11, 121), (12, 144), (13, 169), (14, 196), (15, 225), (16, 256), (17, 289), (18, 324), (19, 361), (20, 400), (21, 441), (22, 484), (23, 529), (24, 576), (25, 625), (26, 676), (27, 729), (28, 784), (29, 841), (30, 900), (31, 961), (32, 1024), (33, 1089), (34, 1156), (35, 1225), (36, 1296), (37, 1369), (38, 1444), (39, 1521), (40, 1600), (41, 1681), (42, 1764), (43, 1849), (44, 1936), (45, 2025), (46, 2116), (47, 2209), (48, 2304), (49, 2401), (50, 2500), (51, 2601), (52, 2704), (53, 2809), (54, 2916), (55, 3025), (56, 3136), (57, 3249), (58, 3364), (59, 3481), (60, 3600), (61, 3721), (62, 3844), (63, 3969), (64, 4096), (65, 4225), (66, 4356), (67, 4489), (68, 4624), (69, 4761), (70, 4900), (71, 5041), (72, 5184), (73, 5329), (74, 5476), (75, 5625), (76, 5776), (77, 5929), (78, 6084), (79, 6241), (80, 6400), (81, 6561), (82, 6724), (83, 6889), (84, 7056), (85, 7225), (86, 7396), (87, 7569), (88, 7744), (89, 7921), (90, 8100), (91, 8281), (92, 8464), (93, 8649), (94, 8836), (95, 9025), (96, 9216), (97, 9409), (98, 9604), (99, 9801)]\n"
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e##Map\u003cbr/\u003eMap is a transform for lifting functions from what is termed the \u0026ldquo;lower level\u0026rdquo; of individual types to the \u0026ldquo;elevated level\u0026rdquo; of Lists of individaul types. This allows a function that takes a single parameter of type T to be applied to each element of a list of elements of type T.\u003c/p\u003e\n\u003cp\u003eMap is called lifting, it is the lifting transform for functions.\u003c/p\u003e\n\u003cp\u003ewhat this means is that Map allows working on a list of values without extracting those values from the list.\u003c/p\u003e\n\u003c/div\u003e"
       },
       "dateCreated": "Feb 1, 2017 9:31:07 PM",
-      "dateStarted": "Feb 16, 2017 10:02:41 AM",
-      "dateFinished": "Feb 16, 2017 10:02:41 AM",
+      "dateStarted": "Feb 24, 2017 7:12:18 PM",
+      "dateFinished": "Feb 24, 2017 7:12:21 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\nimport sys\nsys.version",
+      "text": "%md\n# Procedural mapping\n",
       "user": "anonymous",
-      "dateUpdated": "Feb 16, 2017 10:00:49 AM",
+      "dateUpdated": "Feb 24, 2017 1:28:15 AM",
       "config": {
-        "colWidth": 12.0,
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1487899630733_1233556663",
+      "id": "20170224-012710_482937697",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eProcedural mapping\u003c/h1\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 24, 2017 1:27:10 AM",
+      "dateStarted": "Feb 24, 2017 1:28:15 AM",
+      "dateFinished": "Feb 24, 2017 1:28:15 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n# Functional Mapping",
+      "user": "anonymous",
+      "dateUpdated": "Feb 24, 2017 1:28:13 AM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1487899642281_-1869427892",
+      "id": "20170224-012722_2131703812",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch1\u003eFunctional Mapping\u003c/h1\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 24, 2017 1:27:22 AM",
+      "dateStarted": "Feb 24, 2017 1:28:13 AM",
+      "dateFinished": "Feb 24, 2017 1:28:13 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n#to demonstrate the difference between map and an extraction-transformation-addition type method for changing each value in a list\n\n# part 1 double each value in a list  - procedureally\n\nlist1 \u003d range(10000000)\n\n\n@timeme  #using timing decorator to measure function duration\ndef double(list1):\n    list2 \u003d []\n    for element in list1:\n        doubval \u003d 2*element\n        list2.append(doubval)\n    return list2\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 24, 2017 2:42:55 AM",
+      "config": {
+        "colWidth": 6.0,
         "graph": {
           "mode": "table",
           "height": 300.0,
@@ -64,18 +254,130 @@
       "result": {
         "code": "SUCCESS",
         "type": "TEXT",
-        "msg": "\u00273.4.2 (default, Oct  8 2014, 10:45:20) \\n[GCC 4.9.1]\u0027\n"
+        "msg": ""
       },
       "dateCreated": "Feb 1, 2017 9:31:47 PM",
-      "dateStarted": "Feb 16, 2017 10:00:49 AM",
-      "dateFinished": "Feb 16, 2017 10:00:49 AM",
+      "dateStarted": "Feb 24, 2017 2:42:55 AM",
+      "dateFinished": "Feb 24, 2017 2:42:55 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "",
+      "text": "%pyspark\n\n# part 2 double each value - map\n\nlist3 \u003d range(10000000)\n\n@timeme\ndef doublef(list3):\n    list4 \u003d list(map(lambda x : x*2, list3))\n    return list4\n\n# this function is lazy in Python 3 and it only returns a generator for the list, not the actual list.",
       "user": "anonymous",
-      "dateUpdated": "Feb 16, 2017 10:00:49 AM",
+      "dateUpdated": "Feb 24, 2017 2:42:52 AM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1487899607086_1211995400",
+      "id": "20170224-012647_1192428668",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
+      "dateCreated": "Feb 24, 2017 1:26:47 AM",
+      "dateStarted": "Feb 24, 2017 2:42:52 AM",
+      "dateFinished": "Feb 24, 2017 2:42:52 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\r\nFunctional Programming Transforms\r\n\r\nThis chapter discusses the features that make functional programming such a useful paradigm.\r\n\r\n\r\n\r\nFunctional programming is all about transforming data from one form to another and all of these transforms are based on a simple set of tools that are necessary in a modern functional programming toolbox. These transformations are useful for converting the types of input or types of function definition into a different type or signature that will allow the transformed types to be chained with other functions.\r\n\r\n\r\n\r\nThere are only around 10 different transforms that make up everything and this chapter will examine the most important 5 transforms used to create the majority of programming structures.\r\n\r\nThe 5 most important transforms are\r\n\r\nMap\r\nReturn\r\nMap2\r\nApply\r\nBind\r\nTo explain the meaning of these transforms first it is necessary to understand the levels of abstraction that will be discussed in this view. This representation of data has a lower tier which contains individual types of objects like int, bool, string or even functions. These low Tier values are represented as existing on the low level. The upper level is for Lists or Sets of generic types, List\u003cint\u003e or List\u003cbool\u003e, it is also the abstracted layer for representing Lazy functions.\r\n\r\nThese lists and wrapped functions are termed as existing in the elevated realm M.\r\n\r\nThe transformations are all about elevating a value or function or levelling an object to make them composable with other functions/objects. Composable functions are functions that have a horizontal representation in the Tier structure. The aim of the transformations is to create the elevated horizontal versions of the given structures. \r\n\r\nThe first transform is for elevating a simple value to the Upper Tier, In code this would be achieved by wrapping the given value and returning a lazy function containing the given value.\r\n\r\n\r\n\r\nReturn   \r\n\r\n(raises a value or function to elevated TIER)\r\n\r\nThe return transform is for raising a single value to create a List containing a single value\r\n\r\nx -\u003e [x]\r\n\r\n\r\n\r\n\r\n\r\nMap  \r\n\r\n(raises a function)\r\n\r\nThe Map transform is for raising the input and output of a function from the lower tier to the elevated tier, a function with  the signature  \r\n\r\n( A \u003d\u003d\u003e B )  \r\n\r\ninto the lifted function with a signature\r\n\r\n( M \u003cA\u003e \u003d\u003d\u003e M \u003cB\u003e )\r\n\r\nThe way that mapping is achieved is by wrapping the original function and returning the wrapped function which is a lazy function.\r\n\r\n\r\n\r\nApply \r\n\r\nThe apply transform is used when you have a set of composed functions and they need to be split into individual parts (it is like currying for the Elevated TIER). Using apply once on an Upper tier function with multiple parameters divides it into the head parameter and tail parameters. e.g.\r\n\r\nM \u003c A \u003d\u003e B \u003d\u003e C \u003d\u003e Ans \u003e\r\n\r\ntransforming with apply once gives\r\n\r\nM\u003c A \u003e \u003d\u003d\u003e M \u003c B \u003d\u003e C \u003d\u003e Ans \u003e\r\n\r\napply again\r\n\r\nM\u003c A \u003e \u003d\u003d\u003e M \u003c B \u003e  \u003d\u003d\u003e M \u003c C \u003d\u003e Ans \u003e\r\n\r\napply again\r\n\r\nM\u003c A \u003e \u003d\u003d\u003e M \u003c B \u003e \u003d\u003d\u003e M \u003c C \u003e  \u003d\u003d\u003e M \u003c Ans \u003e\r\n\r\nApply is used to apply the parameter to a main function one at a time in a lazy fashion, so that when all of the parameters have been applied the full potential function is ready to be run. [2]\r\n\r\nApply is used to compose all the prepared lazy composable functions into a large composed object, that is still a potential/lazy object that just needs the last run command before being created/run.\r\n\r\n \r\n\r\nMap2\r\n\r\nSimilar to the map function this is an elevator method for raising a two parameter function into the elevated Tier, this method can also be used to raise higher arity functions by chaining\r\n\r\n\r\n\r\n\r\n\r\nBind\r\n\r\nThe bind transform is a little more complicated than the other transforms, but it is the one that opens some important abilities. When you have two functions that you want to use in a composition, but the abstraction types are incompatible, e.g.  Take a\r\n\r\nfirst function  \u003d( M \u003cA\u003e  \u003d\u003d\u003e  M \u003cB\u003e )   and a \r\n\r\nsecond function \u003d(     B      \u003d\u003d\u003e  M  \u003cC\u003e)   but these two functions are not composable as the M \u003cB\u003e output from the first function does not correspond to the B type input for the second function. \r\n\r\nThe Bind transform enables transforming the second functions Input type to an Elevated M type.\r\n\r\nsecondM function \u003d ( M \u003cB\u003e  \u003d\u003d\u003e  M \u003cC\u003e ) which is composable with the first function.\r\n\r\n\r\n\r\n\r\n\r\nWho needs transforms?\r\n\r\nTo demonstrate these transforms in an example lets have a look at the sample version from the video “Dr Frankenfunctor and the Monadster\" - by Scott Wlaschin[2]\r\n\r\nIn this video the situation is described for processing the input for a web service that needs to update a users details in their database,\r\n\r\nThe process has to follow these steps :\r\n\r\nValidate the input data, possibly fail on invalid input.\r\nThis takes a single input but has the possibility of having two outputs.\r\n\r\nCanonicalize input, no failure this handles everything, removes spaces or invalid punctuation\r\nThis has only one input, and one output.\r\n\r\nFetch Existing User from Db\r\nThis has one input but possibly two outputs\r\n\r\nUpdate Record from Db\r\nThis has one input and no output.\r\n\r\nComposing functions can be represented by the analogy of train tracks, each function represents  a single block, for composable tracks these pieces need to be connectable, so they need to all be converted to a twin track system. In this example a twin track object will be represented as the Elevated Tier, the original track shown below represent the lower Tier. \r\n\r\n\r\n\r\n\r\n\r\nConversion\r\n\r\nEach of the tracks need to be converted to suit a twin track redesign to enable composition  \r\n\r\n\r\n\r\nThe first function is already in the twin track state,  the Canonicalize function needs a map to raise it from a lower type 1 track function to an Upper Tier 2 track object M type, the DbFetch object needs a bind function to change its input type to an elevated input type, the DbUpdate needs a tee transform to create the standard output and a map to elevate  it to a twin track object.\r\n\r\nOnce these transforms have been completed then the functions can be called applied using three apply methods to get to the end state. This is a functional method to make everything easy to compose.An important aspect of the upper level objects is that they are lazy objects, they can be combined and applied to create other Upper Tier objects, before the completed built object is run.\r\n\r\nSome popular features of Functional are combinations of these basic transforms.\r\n\r\nMonads are a combination of a return transform and a bind transform to create a transformation which can be designed to work with controlled side-effects to allow functional programs to be effective without breaking any rules of functional programming. ",
+      "user": "anonymous",
+      "dateUpdated": "Mar 3, 2017 2:38:17 AM",
+      "config": {
+        "colWidth": 7.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "tableHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1487900362804_1486565432",
+      "id": "20170224-013922_2144885406",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eFunctional Programming Transforms\u003c/p\u003e\n\u003cp\u003eThis chapter discusses the features that make functional programming such a useful paradigm.\u003c/p\u003e\n\u003cp\u003eFunctional programming is all about transforming data from one form to another and all of these transforms are based on a simple set of tools that are necessary in a modern functional programming toolbox. These transformations are useful for converting the types of input or types of function definition into a different type or signature that will allow the transformed types to be chained with other functions.\u003c/p\u003e\n\u003cp\u003eThere are only around 10 different transforms that make up everything and this chapter will examine the most important 5 transforms used to create the majority of programming structures.\u003c/p\u003e\n\u003cp\u003eThe 5 most important transforms are\u003c/p\u003e\n\u003cp\u003eMap\u003cbr/\u003eReturn\u003cbr/\u003eMap2\u003cbr/\u003eApply\u003cbr/\u003eBind\u003cbr/\u003eTo explain the meaning of these transforms first it is necessary to understand the levels of abstraction that will be discussed in this view. This representation of data has a lower tier which contains individual types of objects like int, bool, string or even functions. These low Tier values are represented as existing on the low level. The upper level is for Lists or Sets of generic types, List\u003cint\u003e or List\u003cbool\u003e, it is also the abstracted layer for representing Lazy functions.\u003c/p\u003e\n\u003cp\u003eThese lists and wrapped functions are termed as existing in the elevated realm M.\u003c/p\u003e\n\u003cp\u003eThe transformations are all about elevating a value or function or levelling an object to make them composable with other functions/objects. Composable functions are functions that have a horizontal representation in the Tier structure. The aim of the transformations is to create the elevated horizontal versions of the given structures. \u003c/p\u003e\n\u003cp\u003eThe first transform is for elevating a simple value to the Upper Tier, In code this would be achieved by wrapping the given value and returning a lazy function containing the given value.\u003c/p\u003e\n\u003cp\u003eReturn \u003c/p\u003e\n\u003cp\u003e(raises a value or function to elevated TIER)\u003c/p\u003e\n\u003cp\u003eThe return transform is for raising a single value to create a List containing a single value\u003c/p\u003e\n\u003cp\u003ex -\u0026gt; [x]\u003c/p\u003e\n\u003cp\u003eMap \u003c/p\u003e\n\u003cp\u003e(raises a function)\u003c/p\u003e\n\u003cp\u003eThe Map transform is for raising the input and output of a function from the lower tier to the elevated tier, a function with the signature \u003c/p\u003e\n\u003cp\u003e( A \u003d\u003d\u0026gt; B ) \u003c/p\u003e\n\u003cp\u003einto the lifted function with a signature\u003c/p\u003e\n\u003cp\u003e( M \u003cA\u003e \u003d\u003d\u0026gt; M \u003cB\u003e )\u003c/p\u003e\n\u003cp\u003eThe way that mapping is achieved is by wrapping the original function and returning the wrapped function which is a lazy function.\u003c/p\u003e\n\u003cp\u003eApply \u003c/p\u003e\n\u003cp\u003eThe apply transform is used when you have a set of composed functions and they need to be split into individual parts (it is like currying for the Elevated TIER). Using apply once on an Upper tier function with multiple parameters divides it into the head parameter and tail parameters. e.g.\u003c/p\u003e\n\u003cp\u003eM \u0026lt; A \u003d\u0026gt; B \u003d\u0026gt; C \u003d\u0026gt; Ans \u0026gt;\u003c/p\u003e\n\u003cp\u003etransforming with apply once gives\u003c/p\u003e\n\u003cp\u003eM\u003c A \u003e \u003d\u003d\u0026gt; M \u0026lt; B \u003d\u0026gt; C \u003d\u0026gt; Ans \u0026gt;\u003c/p\u003e\n\u003cp\u003eapply again\u003c/p\u003e\n\u003cp\u003eM\u003c A \u003e \u003d\u003d\u0026gt; M \u003c B \u003e \u003d\u003d\u0026gt; M \u0026lt; C \u003d\u0026gt; Ans \u0026gt;\u003c/p\u003e\n\u003cp\u003eapply again\u003c/p\u003e\n\u003cp\u003eM\u003c A \u003e \u003d\u003d\u0026gt; M \u003c B \u003e \u003d\u003d\u0026gt; M \u003c C \u003e \u003d\u003d\u0026gt; M \u003c Ans \u003e\u003c/p\u003e\n\u003cp\u003eApply is used to apply the parameter to a main function one at a time in a lazy fashion, so that when all of the parameters have been applied the full potential function is ready to be run. [2]\u003c/p\u003e\n\u003cp\u003eApply is used to compose all the prepared lazy composable functions into a large composed object, that is still a potential/lazy object that just needs the last run command before being created/run.\u003c/p\u003e\n\u003cp\u003eMap2\u003c/p\u003e\n\u003cp\u003eSimilar to the map function this is an elevator method for raising a two parameter function into the elevated Tier, this method can also be used to raise higher arity functions by chaining\u003c/p\u003e\n\u003cp\u003eBind\u003c/p\u003e\n\u003cp\u003eThe bind transform is a little more complicated than the other transforms, but it is the one that opens some important abilities. When you have two functions that you want to use in a composition, but the abstraction types are incompatible, e.g. Take a\u003c/p\u003e\n\u003cp\u003efirst function \u003d( M \u003cA\u003e \u003d\u003d\u0026gt; M \u003cB\u003e ) and a \u003c/p\u003e\n\u003cp\u003esecond function \u003d( B \u003d\u003d\u0026gt; M \u003cC\u003e) but these two functions are not composable as the M \u003cB\u003e output from the first function does not correspond to the B type input for the second function. \u003c/p\u003e\n\u003cp\u003eThe Bind transform enables transforming the second functions Input type to an Elevated M type.\u003c/p\u003e\n\u003cp\u003esecondM function \u003d ( M \u003cB\u003e \u003d\u003d\u0026gt; M \u003cC\u003e ) which is composable with the first function.\u003c/p\u003e\n\u003cp\u003eWho needs transforms?\u003c/p\u003e\n\u003cp\u003eTo demonstrate these transforms in an example lets have a look at the sample version from the video “Dr Frankenfunctor and the Monadster\u0026quot; - by Scott Wlaschin[2]\u003c/p\u003e\n\u003cp\u003eIn this video the situation is described for processing the input for a web service that needs to update a users details in their database,\u003c/p\u003e\n\u003cp\u003eThe process has to follow these steps :\u003c/p\u003e\n\u003cp\u003eValidate the input data, possibly fail on invalid input.\u003cbr/\u003eThis takes a single input but has the possibility of having two outputs.\u003c/p\u003e\n\u003cp\u003eCanonicalize input, no failure this handles everything, removes spaces or invalid punctuation\u003cbr/\u003eThis has only one input, and one output.\u003c/p\u003e\n\u003cp\u003eFetch Existing User from Db\u003cbr/\u003eThis has one input but possibly two outputs\u003c/p\u003e\n\u003cp\u003eUpdate Record from Db\u003cbr/\u003eThis has one input and no output.\u003c/p\u003e\n\u003cp\u003eComposing functions can be represented by the analogy of train tracks, each function represents a single block, for composable tracks these pieces need to be connectable, so they need to all be converted to a twin track system. In this example a twin track object will be represented as the Elevated Tier, the original track shown below represent the lower Tier. \u003c/p\u003e\n\u003cp\u003eConversion\u003c/p\u003e\n\u003cp\u003eEach of the tracks need to be converted to suit a twin track redesign to enable composition \u003c/p\u003e\n\u003cp\u003eThe first function is already in the twin track state, the Canonicalize function needs a map to raise it from a lower type 1 track function to an Upper Tier 2 track object M type, the DbFetch object needs a bind function to change its input type to an elevated input type, the DbUpdate needs a tee transform to create the standard output and a map to elevate it to a twin track object.\u003c/p\u003e\n\u003cp\u003eOnce these transforms have been completed then the functions can be called applied using three apply methods to get to the end state. This is a functional method to make everything easy to compose.An important aspect of the upper level objects is that they are lazy objects, they can be combined and applied to create other Upper Tier objects, before the completed built object is run.\u003c/p\u003e\n\u003cp\u003eSome popular features of Functional are combinations of these basic transforms.\u003c/p\u003e\n\u003cp\u003eMonads are a combination of a return transform and a bind transform to create a transformation which can be designed to work with controlled side-effects to allow functional programs to be effective without breaking any rules of functional programming.\u003c/p\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 24, 2017 1:39:22 AM",
+      "dateStarted": "Mar 3, 2017 2:36:12 AM",
+      "dateFinished": "Mar 3, 2017 2:36:12 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%angular\n\u003cdiv\u003e\u003cimg src\u003d\"images/return.png\"\u003e\u003c/div\u003e\n\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 3, 2017 2:43:22 AM",
+      "config": {
+        "colWidth": 5.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false,
+        "tableHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488508705705_686565522",
+      "id": "20170303-023825_1352243703",
+      "result": {
+        "code": "SUCCESS",
+        "type": "ANGULAR",
+        "msg": "\u003cdiv\u003e\u003cimg src\u003d\"/images/return.png\"\u003e\u003c/div\u003e"
+      },
+      "dateCreated": "Mar 3, 2017 2:38:25 AM",
+      "dateStarted": "Mar 3, 2017 2:43:06 AM",
+      "dateFinished": "Mar 3, 2017 2:43:06 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n##References\n\n[1] Wlaschin, Scott. Dr Frankenfunctor and the Monadster, https://vimeo.com/162054542",
+      "user": "anonymous",
+      "dateUpdated": "Feb 24, 2017 2:43:31 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -88,7 +390,9 @@
           "scatter": {}
         },
         "enabled": true,
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -99,17 +403,32 @@
       "id": "20170216-095816_1325853394",
       "result": {
         "code": "SUCCESS",
-        "type": "TEXT",
-        "msg": ""
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e##References\u003c/p\u003e\n\u003cp\u003e[1] Wlaschin, Scott. Dr Frankenfunctor and the Monadster, \u003ca href\u003d\"https://vimeo.com/162054542\"\u003ehttps://vimeo.com/162054542\u003c/a\u003e\u003c/p\u003e\n\u003c/div\u003e"
       },
       "dateCreated": "Feb 16, 2017 9:58:16 AM",
-      "dateStarted": "Feb 16, 2017 10:00:49 AM",
-      "dateFinished": "Feb 16, 2017 10:00:49 AM",
+      "dateStarted": "Feb 24, 2017 2:43:31 AM",
+      "dateFinished": "Feb 24, 2017 2:43:31 AM",
       "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n",
+      "dateUpdated": "Feb 24, 2017 2:43:31 AM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1487904211394_-1325985501",
+      "id": "20170224-024331_148126485",
+      "dateCreated": "Feb 24, 2017 2:43:31 AM",
+      "status": "READY",
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "David/Functional1",
+  "name": "David/Functional_Toolbox",
   "id": "2C84B8KHY",
   "angularObjects": {
     "2C7EWGKXN:shared_process": [],
@@ -122,6 +441,8 @@
     "2C9BA4F3E:shared_process": [],
     "2CAGV9SKG:shared_process": []
   },
-  "config": {},
+  "config": {
+    "looknfeel": "default"
+  },
   "info": {}
 }

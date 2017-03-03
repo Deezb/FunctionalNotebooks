@@ -1,14 +1,14 @@
 {
   "paragraphs": [
     {
-      "text": "%md\n## This defines some decorator functions for the measuring the other functions.\n\n\n",
+      "text": "%md\n## Typeclasses\n\nA Type class is a type system construct that supports polymorphism. \nType classes were introduced in the Haskell programming language in 1987.\n\nType classes allow the programmer to define a class for a type\ne.g. to define a new class which has an eq class to check if two elements are equal to one another the programmer defines the class\n\nPolymorphism is achieved by adding constraints to type variables in parametrically polymorphic types. \nSuch a constraint typically involves a type class T and a type variable a, and means that a can only be instantiated to a type whose members support the overloaded operations associated with T.\nType classes first appeared in the Haskell programming language,[1] and were originally conceived as a way of implementing overloaded arithmetic and equality operators in a principled fashion.[2][3] In contrast with the \"eqtypes\" of Standard ML, overloading the equality operator through the use of type classes in Haskell does not require extensive modification of the compiler frontend or the underlying type system.[4]\n\n",
       "user": "anonymous",
-      "dateUpdated": "Feb 1, 2017 10:19:53 PM",
+      "dateUpdated": "Mar 2, 2017 8:51:39 PM",
       "config": {
         "tableHide": false,
-        "colWidth": 12.0,
+        "colWidth": 8.0,
         "editorMode": "ace/mode/markdown",
-        "editorHide": false,
+        "editorHide": true,
         "graph": {
           "mode": "table",
           "height": 300.0,
@@ -30,18 +30,219 @@
       "result": {
         "code": "SUCCESS",
         "type": "HTML",
-        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eThis defines some decorator functions for the measuring the other functions.\u003c/h2\u003e\n\u003c/div\u003e"
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003eTypeclasses\u003c/h2\u003e\n\u003cp\u003eA Type class is a type system construct that supports polymorphism.\u003cbr/\u003eType classes were introduced in the Haskell programming language in 1987.\u003c/p\u003e\n\u003cp\u003eType classes allow the programmer to define a class for a type\u003cbr/\u003ee.g. to define a new class which has an eq class to check if two elements are equal to one another the programmer defines the class\u003c/p\u003e\n\u003cp\u003ePolymorphism is achieved by adding constraints to type variables in parametrically polymorphic types.\u003cbr/\u003eSuch a constraint typically involves a type class T and a type variable a, and means that a can only be instantiated to a type whose members support the overloaded operations associated with T.\u003cbr/\u003eType classes first appeared in the Haskell programming language,[1] and were originally conceived as a way of implementing overloaded arithmetic and equality operators in a principled fashion.[2][3] In contrast with the \u0026ldquo;eqtypes\u0026rdquo; of Standard ML, overloading the equality operator through the use of type classes in Haskell does not require extensive modification of the compiler frontend or the underlying type system.[4]\u003c/p\u003e\n\u003c/div\u003e"
       },
       "dateCreated": "Feb 1, 2017 10:09:29 PM",
-      "dateStarted": "Feb 1, 2017 10:11:46 PM",
-      "dateFinished": "Feb 1, 2017 10:11:47 PM",
+      "dateStarted": "Mar 2, 2017 8:51:39 PM",
+      "dateFinished": "Mar 2, 2017 8:51:39 PM",
       "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\nTypeclass - \n\n\nPolymorphism - polymorphism is the term for when different type of objects want to be able to make a standard method call to achieve a similar result but using different methods. e.g. a circle or a rectangle might both have a method call to calculate their areas, they will both call the area method but will get back very different methods. There are many ways of achieving this depending on the programming language.\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 2, 2017 8:51:37 PM",
+      "config": {
+        "colWidth": 4.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488220303665_1300676752",
+      "id": "20170227-183143_1783493957",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003eTypeclass - \u003c/p\u003e\n\u003cp\u003ePolymorphism - polymorphism is the term for when different type of objects want to be able to make a standard method call to achieve a similar result but using different methods. e.g. a circle or a rectangle might both have a method call to calculate their areas, they will both call the area method but will get back very different methods. There are many ways of achieving this depending on the programming language.\u003c/p\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 27, 2017 6:31:43 PM",
+      "dateStarted": "Mar 2, 2017 8:51:37 PM",
+      "dateFinished": "Mar 2, 2017 8:51:38 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n\nobject Math {\n  trait NumberLike[T] {\n    def plus(x: T, y: T): T\n    def divide(x: T, y: Int): T\n    def minus(x: T, y: T): T\n  }\n  object NumberLike {\n    implicit object NumberLikeDouble extends NumberLike[Double] {\n      def plus(x: Double, y: Double): Double \u003d x + y\n      def divide(x: Double, y: Int): Double \u003d x / y\n      def minus(x: Double, y: Double): Double \u003d x - y\n    }\n    implicit object NumberLikeInt extends NumberLike[Int] {\n      def plus(x: Int, y: Int): Int \u003d x + y\n      def divide(x: Int, y: Int): Int \u003d x / y\n      def minus(x: Int, y: Int): Int \u003d x - y\n    }\n  }\n}\n\nobject Statistics {\n  import Math.NumberLike\n  def mean[T](xs: Vector[T])(implicit ev: NumberLike[T]): T \u003d\n    ev.divide(xs.reduce(ev.plus(_, _)), xs.size)\n  def median[T : NumberLike](xs: Vector[T]): T \u003d xs(xs.size / 2)\n  def quartiles[T: NumberLike](xs: Vector[T]): (T, T, T) \u003d\n    (xs(xs.size / 4), median(xs), xs(xs.size / 4 * 3))\n  def iqr[T: NumberLike](xs: Vector[T]): T \u003d quartiles(xs) match {\n    case (lowerQuartile, _, upperQuartile) \u003d\u003e\n      implicitly[NumberLike[T]].minus(upperQuartile, lowerQuartile)\n  }\n}\n\nobject JodaImplicits {\n  import Math.NumberLike\n  import org.joda.time.Duration\n  implicit object NumberLikeDuration extends NumberLike[Duration] {\n    def plus(x: Duration, y: Duration): Duration \u003d x.plus(y)\n    def divide(x: Duration, y: Int): Duration \u003d Duration.millis(x.getMillis / y)\n    def minus(x: Duration, y: Duration): Duration \u003d x.minus(y)\n  }\n}",
+      "user": "anonymous",
+      "dateUpdated": "Mar 2, 2017 8:51:57 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488147790964_1222049296",
+      "id": "20170226-222310_1064609681",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "\n\n\ndefined object Math\ndefined object Statistics\ndefined object JodaImplicits\n"
+      },
+      "dateCreated": "Feb 26, 2017 10:23:10 PM",
+      "dateStarted": "Mar 2, 2017 8:51:57 PM",
+      "dateFinished": "Mar 2, 2017 8:51:58 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### In the sample shown on the left, which is taken from http://danielwestheide.com/blog/2013/02/06/the-neophytes-guide-to-scala-part-12-type-classes.html\n\nFirst we define the Math object, \nthe trait is a type definition statement, within the trait you identify what type of each input parameter will have and after the colon it gives the return value type/types. \n\nEach of the function definitions in the trait specify the type for each parameter.\n\nThen we define the Math NumberLike objects, they extend the generic typeclass specifiers.\n\nyou can see the set-up for a generic for defining a statisitcs class\n\nThis example is designed to demonstrate the creation of a statistical library for performing statistical calculations on lists of number that we only need to specify the type on creation of the list.\n\nThe steps to creating this library introduces the typeclass, \ntrait is similar to an interface in Java, it cannot be implemented only inherited by sub-classes",
+      "user": "anonymous",
+      "dateUpdated": "Mar 2, 2017 9:04:00 PM",
+      "config": {
+        "colWidth": 6.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": false,
+        "tableHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488154625620_-317171307",
+      "id": "20170227-001705_970122553",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eIn the sample shown on the left, which is taken from \u003ca href\u003d\"http://danielwestheide.com/blog/2013/02/06/the-neophytes-guide-to-scala-part-12-type-classes.html\"\u003ehttp://danielwestheide.com/blog/2013/02/06/the-neophytes-guide-to-scala-part-12-type-classes.html\u003c/a\u003e\u003c/h4\u003e\n\u003cp\u003eyou can see the set-up for a generic for defining a statisitcs class\u003c/p\u003e\n\u003cp\u003eThis example is designed to demonstrate the creation of a statistical library for performing statistical calculations on lists of number that we only need to specify the type on creation of the list.\u003c/p\u003e\n\u003cp\u003eThe steps to creating this library introduces the typeclass,\u003cbr/\u003etrait is similar to an interface in Java, it cannot be implemented only inherited by sub-classes\u003c/p\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 27, 2017 12:17:05 AM",
+      "dateStarted": "Mar 2, 2017 8:52:14 PM",
+      "dateFinished": "Mar 2, 2017 8:52:14 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nval numbers \u003d Vector[Double](13, 23.0, 42, 45, 61, 73, 96, 100, 199, 420, 900, 3839)\nprintln(Statistics.mean(numbers))\n\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 2, 2017 8:53:39 PM",
+      "config": {
+        "colWidth": 7.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488153721158_1898724612",
+      "id": "20170227-000201_503130013",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "\nnumbers: scala.collection.immutable.Vector[Double] \u003d Vector(13.0, 23.0, 42.0, 45.0, 61.0, 73.0, 96.0, 100.0, 199.0, 420.0, 900.0, 3839.0)\n484.25\n"
+      },
+      "dateCreated": "Feb 27, 2017 12:02:01 AM",
+      "dateStarted": "Mar 2, 2017 8:53:33 PM",
+      "dateFinished": "Mar 2, 2017 8:53:34 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n#### using the Math Statistics class we can feed it a list of Double values and ask for the mean  ",
+      "user": "anonymous",
+      "dateUpdated": "Mar 2, 2017 8:54:45 PM",
+      "config": {
+        "colWidth": 5.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488147793638_-151873702",
+      "id": "20170226-222313_1317217086",
+      "result": {
+        "code": "SUCCESS",
+        "type": "HTML",
+        "msg": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch4\u003eusing the Math Statistics class we can feed it a list of Double values and ask for the mean\u003c/h4\u003e\n\u003c/div\u003e"
+      },
+      "dateCreated": "Feb 26, 2017 10:23:13 PM",
+      "dateStarted": "Mar 2, 2017 8:54:45 PM",
+      "dateFinished": "Mar 2, 2017 8:54:45 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%md\n",
+      "dateUpdated": "Feb 26, 2017 10:23:15 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488147795907_748053975",
+      "id": "20170226-222315_672318170",
+      "dateCreated": "Feb 26, 2017 10:23:15 PM",
+      "status": "READY",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\nimport time\n\ndef timeme(func_sent_in):\n    \"\"\"\n    Calculates run duration of a given function\n    \"\"\"\n    def inner_wrap(*args, **kwargs):\n        t1 \u003d time.time()\n        func_sent_in(*args, **kwargs)\n        t2 \u003d time.time()\n        func_name \u003d func_sent_in.__name__\n        time_taken \u003d str((t2 - t1))\n        return \"To run the function \u0027{0}\u0027, took {1} seconds.\\n\".format(func_name, time_taken)\n    return inner_wrap\n\n",
       "user": "anonymous",
-      "dateUpdated": "Feb 1, 2017 10:30:47 PM",
+      "dateUpdated": "Feb 27, 2017 6:30:22 PM",
       "config": {
         "colWidth": 8.0,
         "editorMode": "ace/mode/python",
@@ -69,8 +270,8 @@
         "msg": ""
       },
       "dateCreated": "Feb 1, 2017 10:09:29 PM",
-      "dateStarted": "Feb 1, 2017 10:30:47 PM",
-      "dateFinished": "Feb 1, 2017 10:30:47 PM",
+      "dateStarted": "Feb 27, 2017 6:30:22 PM",
+      "dateFinished": "Feb 27, 2017 6:30:22 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -115,7 +316,7 @@
     {
       "text": "%pyspark\n@timeme\ndef hi():\n    print(\"this is hi\")\n    for i in range(50):\n        print(i,sep\u003d\u0027 \u0027,end\u003d\u0027\u0027)\n    print()\n\nprint(hi())\n\n@timeme\ndef hi2(a):\n    print(\"this is hi2\")\n    for i in range(a):\n        print(i,sep\u003d\u0027,\u0027,end\u003d\u0027\u0027)\n    print(\u0027\\n\u0027)\n\nprint(hi2(5))\n",
       "user": "anonymous",
-      "dateUpdated": "Feb 1, 2017 10:30:50 PM",
+      "dateUpdated": "Feb 27, 2017 6:30:25 PM",
       "config": {
         "colWidth": 12.0,
         "editorMode": "ace/mode/python",
@@ -140,11 +341,11 @@
       "result": {
         "code": "SUCCESS",
         "type": "TEXT",
-        "msg": "this is hi\n012345678910111213141516171819202122232425262728293031323334353637383940414243444546474849\nTo run the function \u0027hi\u0027, took 0.015278816223144531 seconds.\n\nthis is hi2\n01234\n\nTo run the function \u0027hi2\u0027, took 0.0017921924591064453 seconds.\n\n"
+        "msg": "this is hi\n012345678910111213141516171819202122232425262728293031323334353637383940414243444546474849\nTo run the function \u0027hi\u0027, took 0.021411418914794922 seconds.\n\nthis is hi2\n01234\n\nTo run the function \u0027hi2\u0027, took 0.007764577865600586 seconds.\n\n"
       },
       "dateCreated": "Feb 1, 2017 10:09:29 PM",
-      "dateStarted": "Feb 1, 2017 10:30:50 PM",
-      "dateFinished": "Feb 1, 2017 10:30:50 PM",
+      "dateStarted": "Feb 27, 2017 6:30:25 PM",
+      "dateFinished": "Feb 27, 2017 6:30:25 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -178,19 +379,21 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "David/Notebook1",
+  "name": "David/Typeclasses",
   "id": "2C8H7B89J",
   "angularObjects": {
-    "2C7TAH5JQ:shared_process": [],
-    "2CAPP4FZV:shared_process": [],
-    "2C8GDZ6XR:shared_process": [],
-    "2CA4KK1CQ:shared_process": [],
-    "2CA496Y6H:shared_process": [],
-    "2C93FGA8G:shared_process": [],
-    "2C7MT249R:shared_process": [],
-    "2C7USVBE7:shared_process": [],
-    "2C7CZH3QG:shared_process": []
+    "2C7EWGKXN:shared_process": [],
+    "2CAGPJ93Y:shared_process": [],
+    "2C8HKHF53:shared_process": [],
+    "2C9X1SS4K:shared_process": [],
+    "2C7C4ENCY:shared_process": [],
+    "2C7KTHZNU:shared_process": [],
+    "2C7RVPZ3W:shared_process": [],
+    "2C9BA4F3E:shared_process": [],
+    "2CAGV9SKG:shared_process": []
   },
-  "config": {},
+  "config": {
+    "looknfeel": "simple"
+  },
   "info": {}
 }
